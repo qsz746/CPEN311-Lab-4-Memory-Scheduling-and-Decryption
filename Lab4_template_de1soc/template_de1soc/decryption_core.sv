@@ -8,8 +8,8 @@ module decryption_core (
 
   // Internal memory interface signals
   logic [7:0]  s_mem_addr;
-  logic [7:0]  s_mem_data_in;
-  logic [7:0]  s_mem_data_out;
+  logic [7:0]  s_mem_data_write;
+  logic [7:0]  s_mem_data_read;
   logic        s_mem_wren;
 
   // Instantiate datapath
@@ -18,11 +18,11 @@ module decryption_core (
     .reset_n               (reset_n),
     .datapath_start        (start),
     .input_key             (input_key),
-    .done                  (done),
+    .datapath_done         (done),
     // Memory interface
     .s_mem_addr     (s_mem_addr),
-    .s_mem_data_in  (s_mem_data_in),
-    .s_mem_data_out (s_mem_data_out),
+    .s_mem_data_write  (s_mem_data_write),
+    .s_mem_data_read (s_mem_data_read),
     .s_mem_wren     (s_mem_wren)
   );
 
@@ -30,8 +30,8 @@ module decryption_core (
   s_memory memory_inst (
     .clock      (clk),
     .address    (s_mem_addr),
-    .data       (s_mem_data_out),
-    .q          (s_mem_data_in),
+    .data       (s_mem_data_write),
+    .q          (s_mem_data_read),
     .wren       (s_mem_wren)
   );
 

@@ -37,10 +37,9 @@ module memory_init (
 
                 INIT: begin
                     if (counter == 8'd255) begin
-                        state <= DONE;    // Done after 256 writes
-                    end else begin
-                        counter <= counter + 1;
+                        state <= DONE;
                     end
+                    counter <= counter + 1;
                 end
 
                 DONE: begin
