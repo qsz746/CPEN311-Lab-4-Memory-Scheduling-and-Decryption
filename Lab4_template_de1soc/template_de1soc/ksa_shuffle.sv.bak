@@ -1,0 +1,73 @@
+module ksa_shuffle  (
+    input  logic         clk,
+    input  logic         reset_n,
+    input  logic         start,
+    logic [7:0] secret_key [0:2];
+    output logic         done,
+    output logic [7:0]   s_out [0:255]  // Output S array (optional)
+);
+    typedef enum logic [1:0] {
+        IDLE, INIT, SHUFFLE, FINISH
+    } state_t;
+
+    state_t state;
+
+    logic [7:0] s [0:255];  // S-box
+    logic [7:0] i, j;
+    logic [7:0] temp;
+
+	 
+	 always_comb begin
+    // Convert 10-bit input to 3 bytes with upper 14 bits zero
+    // Format: secret_key[0] = LSB, secret_key[2] = MSB
+    secret_key[0] = 8'd0;                      // upper 8 bits = 0
+    secret_key[1] = {6'b0, input_key[9:8]};    // bits 9:8 padded to upper 2 bits
+    secret_key[2] = input_key[7:0];            // bits 7:0         
+	 end
+
+    // State machine
+    always_ff @(posedge clk or negedge reset_n) begin
+        if (!reset_n) begin
+            state <= IDLE;
+            i     <= 0;
+            j     <= 0;
+            done  <= 0;
+        end else begin
+            case (state)
+                IDLE: begin
+                    if (start) begin
+                        // Initialize S[i] = i
+                        i     <= 0;
+                        j     <= 0;
+                        done  <= 0;
+                        state <= SHUFFLE;
+                    end
+                end
+
+                SHUFFLE: begin
+                    if (i < 8'd256) begin
+                        j = j + s[i] + secret_key[i % KEYLEN];
+
+                        // Swap s[i] and s[j]
+                        temp = s[i];
+                        s[i] = s[j];
+                        s[j] = temp;
+
+                        i = i + 1;
+                    end else begin
+                        state <= FINISH;
+                    end
+                end
+
+                FINISH: begin
+                    done <= 1;
+                    // Optional: copy to output port if needed
+                    for (int idx = 0; idx < 256; idx++) begin
+                        s_out[idx] = s[idx];
+                    end
+                    state <= IDLE;
+                end
+            endcase
+        end
+    end
+endmodule

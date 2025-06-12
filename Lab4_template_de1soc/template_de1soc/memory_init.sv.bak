@@ -1,0 +1,30 @@
+module memory_init (
+  input  logic        clk,
+  input  logic        reset_n,
+  output logic [7:0]  mem_addr,
+  output logic [7:0]  mem_data,
+  output logic        mem_wren,
+  output logic        init_done
+);
+  logic [7:0] counter;
+
+  always_ff @(posedge clk or negedge reset_n) begin
+    if (!reset_n) begin
+      counter  <= 8'd0;
+      mem_wren <= 1'b0;
+      init_done <= 1'b0;
+    end else begin
+      if (counter < 8'd255) begin
+        // Write s[i] = i
+        mem_addr <= counter;
+        mem_data <= counter;
+        mem_wren <= 1'b1;
+        counter  <= counter + 8'd1;
+      end else begin
+        // Initialization complete
+        mem_wren  <= 1'b0;
+        init_done <= 1'b1;
+      end
+    end
+  end
+endmodule

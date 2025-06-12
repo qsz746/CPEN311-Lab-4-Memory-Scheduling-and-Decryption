@@ -1,0 +1,42 @@
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  s_memory s_mem (
+    .address(s_mem_address),
+    .clock(clk),
+    .data(s_mem_data_in),
+    .wren(s_mem_wren),
+    .q(s_mem_data_out));
+  
+  
+  
+  memory_init memory_init_instance (
+    .clk       (clk),        
+    .reset_n   (reset_n),    
+    .mem_address  (s_mem_address),   
+    .mem_data  (s_mem_data),   
+    .mem_wren  (s_mem_wren),   
+    .init_done (init_done)  
+  );
+  
+  
+  
+  
+ ksa_shuffle ksa_shuffle_instance (
+    .clk           (clk),        
+    .reset_n       (reset_n),    
+    .start  	    (init_done),   
+    .mem_address   (s_mem_address),   
+	 .mem_data_in   (s_mem_data_in), 
+	 .mem_data_out  (s_mem_data_out),
+    .mem_wren  	 (s_mem_wren),   
+    .shuffle_done  (shuffle_done)  
+ 
+);
