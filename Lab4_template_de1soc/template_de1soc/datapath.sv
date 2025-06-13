@@ -12,17 +12,15 @@ module datapath (
   output logic        s_mem_wren
 );
 
-  logic [6:0] state;
+  logic [4:0] state;
   // FSM State definition
- // state[6:4] = additional bits to make state unique
- // state[3] = placeholder - for future usage
- // state[2] = shuffle_start
- // state[1] = init_start
+ // state[4:2] = additional bits to make state unique
+ // state[1] = placeholder - for future usage
  // state[0] = datapath_done
-  parameter [6:0] IDLE        = 6'b000_0000;  // 
-  parameter [6:0] INIT_MEMORY = 6'b001_0010;  // init_start=1 (bit 0)
-  parameter [6:0] SHUFFLE     = 6'b010_0100;  // shuffle_start=1 (bit 1)
-  parameter [6:0] COMPLETE    = 6'b011_0001;   
+  parameter [4:0] IDLE        = 6'b000_00;  // 
+  parameter [4:0] INIT_MEMORY = 6'b001_00;  // init_start=1 (bit 0)
+  parameter [4:0] SHUFFLE     = 6'b010_00;  // shuffle_start=1 (bit 1)
+  parameter [4:0] COMPLETE    = 6'b011_01;   
 
   // Internal control wires
   logic init_start;
@@ -33,8 +31,7 @@ module datapath (
   logic init_done_ack;  // Handshake acknowledgment
 
   assign datapath_done = state[0];
-  assign init_start  = state[1];
-  assign shuffle_start  = state[2];
+  
 
   logic [7:0] mem_addr_init;
   logic [7:0] mem_data_write_init;
@@ -43,6 +40,22 @@ module datapath (
   logic [7:0] mem_addr_shuffle;
   logic [7:0] mem_data_write_shuffle;
   logic       mem_wren_shuffle;
+
+
+
+    // Registered outputs
+  logic [7:0] s_mem_addr_reg;
+  logic [7:0] s_mem_data_write_reg;
+  logic       s_mem_wren_reg;
+  logic       init_start_reg;    // Registered init_start
+  logic       shuffle_start_reg; // Registered shuffle_start
+
+  // Assign registered outputs to ports
+  assign s_mem_addr = s_mem_addr_reg;
+  assign s_mem_data_write = s_mem_data_write_reg;
+  assign s_mem_wren = s_mem_wren_reg;
+  assign init_start       = init_start_reg;
+  assign shuffle_start    = shuffle_start_reg;
 
   // Instantiate memory init module
   memory_init memory_init_inst (
@@ -111,27 +124,39 @@ module datapath (
   end
 
 
-  // COMBINATIONAL OUTPUT ROUTING (NEW)
-  always_comb begin
-    // Default outputs
-    s_mem_addr       = 8'd0;
-    s_mem_data_write = 8'd0;
-    s_mem_wren       = 1'b0;
+  // Output register logic
+  always_ff @(posedge clk or negedge reset_n) begin
+    if (!reset_n) begin
+      s_mem_addr_reg <= 8'd0;
+      s_mem_data_write_reg <= 8'd0;
+      s_mem_wren_reg <= 1'b0;
+		init_start_reg       <= 1'b0;
+		shuffle_start_reg    <= 1'b0; 
+    end else begin
+      // Default outputs
+      s_mem_addr_reg <= 8'd0;
+      s_mem_data_write_reg <= 8'd0;
+      s_mem_wren_reg <= 1'b0;
+		init_start_reg       <= 1'b0;
+		shuffle_start_reg    <= 1'b0; 
 
-    // Route signals based on state
-    case (state)
-      INIT_MEMORY: begin
-        s_mem_addr       = mem_addr_init;
-        s_mem_data_write = mem_data_write_init;
-        s_mem_wren       = mem_wren_init;
-      end
-      SHUFFLE: begin
-        s_mem_addr       = mem_addr_shuffle;
-        s_mem_data_write = mem_data_write_shuffle;
-        s_mem_wren       = mem_wren_shuffle;
-      end
-      default: ; // IDLE and COMPLETE use defaults
-    endcase
+      // Route signals based on state
+      case (state)
+        INIT_MEMORY: begin
+          init_start_reg       <= 1'b1; 
+          s_mem_addr_reg <= mem_addr_init;
+          s_mem_data_write_reg <= mem_data_write_init;
+          s_mem_wren_reg <= mem_wren_init;
+        end
+        SHUFFLE: begin
+          shuffle_start_reg    <= 1'b1; 
+          s_mem_addr_reg <= mem_addr_shuffle;
+          s_mem_data_write_reg <= mem_data_write_shuffle;
+          s_mem_wren_reg <= mem_wren_shuffle;
+        end
+        default: ; // IDLE and COMPLETE use defaults
+      endcase
+    end
   end
 
 endmodule
