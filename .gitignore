@@ -1,1 +1,55 @@
-*.flock
+# Quartus Prime build folders
+db/
+incremental_db/
+simulation/
+
+# Quartus Prime project files (optional to keep)
+# *.qpf  # Quartus Project File
+# *.qsf  # Quartus Settings File
+
+# Quartus Prime output files
+*.rpt
+*.summary
+*.smsg
+*.pin
+*.pof
+*.sof
+*.cdf
+*.jdi
+*.sld
+*.chg
+*.qws
+*.qdf
+*.bak
+*.svf
+*.srec
+*.raw
+*.smsg
+*.cdb
+*.hdb
+*.ddc
+*.sdc~
+*.log
+*.err
+*.vcd
+*.flock 
+# Simulation files (ModelSim, etc.)
+*.wlf
+*.vcd
+*.log
+*.vcd.*
+transcript
+vsim.wlf
+modelsim.ini
+*.do
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary/backup files
+*~
+*.swp
+*.tmp
+*.orig
+*.out
