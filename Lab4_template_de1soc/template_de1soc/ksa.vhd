@@ -40,9 +40,9 @@ architecture rtl of ksa is
 	 
     -- Signals
     signal core_done : std_logic;
+    signal start_core : std_logic := '1'; -- Default to '1' for auto-start
  
- 
- 
+   
     -- clock and reset signals  
 	 signal clk, reset_n : std_logic;										
  
@@ -56,10 +56,22 @@ begin
     port map (
       clk       => clk,
       reset_n   => reset_n,
-      start     => '1',
+      start     => start_core,
       input_key => SW,
       done      => core_done
     );
+
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            if core_done = '1' then
+                start_core <= '0'; -- Disable after completion
+            end if;
+        end if;
+    end process;
+
+    LEDR(0) <= core_done;  -- Show completion status
+    LEDR(9) <= start_core; -- Show when core is active
 
 
 end RTL;

@@ -2,6 +2,7 @@ module memory_init (
     input  logic        clk,
     input  logic        reset_n,
     input  logic        start,
+	 input  logic        done_ack,     // New: Handshake acknowledgment
     output logic [7:0]  mem_addr,
     output logic [7:0]  mem_data,
     output logic        mem_wren,     
@@ -15,7 +16,8 @@ module memory_init (
     // state[0] = init_done (1 when DONE)
     parameter [4:0] IDLE  = 6'b00_0_00;
     parameter [4:0] INIT  = 6'b01_0_10;  // mem_wren=1
-    parameter [4:0] DONE  = 6'b10_0_01;  // init_done=1
+	 parameter [4:0] WAIT  = 6'b10_0_10;  // mem_wren=1
+    parameter [4:0] DONE  = 6'b11_0_01;  // init_done=1
 
     logic [4:0] state;
     logic [7:0] counter;  // 8-bit counter (0 to 255)
@@ -36,14 +38,20 @@ module memory_init (
                 end
 
                 INIT: begin
-                    if (counter == 8'd255) begin
-                        state <= DONE;
-                    end
                     counter <= counter + 1;
+                        if (counter == 8'd255) begin
+                            state <= WAIT; // Move to DONE next cycle, after writing 255
+                        end
+                end
+
+                WAIT: begin
+                    state <= DONE;    // Now safe to assert init_done
                 end
 
                 DONE: begin
-                    state <= IDLE;  // Return to IDLE after one cycle
+					     if (done_ack) begin
+                       state <= IDLE;  // Return to IDLE after one cycle
+						  end
                 end
             endcase
         end
