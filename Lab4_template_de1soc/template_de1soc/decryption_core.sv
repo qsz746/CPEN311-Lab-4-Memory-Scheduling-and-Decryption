@@ -76,8 +76,8 @@ module decryption_core (
 
 
      // E Memory interface
-    .e_mem_addr     (e_mem_addr),
-    .e_mem_wren     (e_mem_wren)
+    .e_mem_addr       (e_mem_addr),
+    .e_mem_data_read  (e_mem_data_read)
   );
 
 

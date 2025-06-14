@@ -2,6 +2,7 @@
 db/
 incremental_db/
 simulation/
+output_files/
 
 # Quartus Prime project files (optional to keep)
 # *.qpf  # Quartus Project File

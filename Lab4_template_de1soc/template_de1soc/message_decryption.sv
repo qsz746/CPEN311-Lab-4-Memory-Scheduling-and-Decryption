@@ -1,3 +1,13 @@
+// compute one byte per character in the encrypted message. You will build this in Task 2
+// i = 0, j=0
+// for k = 0 to message_length-1 { // message_length is 32 in our implementation
+// i = i+1
+// j = j+s[i]
+// swap values of s[i] and s[j]
+// f = s[ (s[i]+s[j]) ]
+// decrypted_output[k] = f xor encrypted_input[k] // 8 bit wide XOR function
+// }
+
 module message_decryption (
   input  logic        clk,
   input  logic        reset_n,
@@ -20,32 +30,35 @@ module message_decryption (
 
   localparam MESSAGE_LENGTH = 32;
   
-  logic [6:0] state;
+  logic [7:0] state;
   // FSM State definition
-  // state[6:3] = additional bits to make state unique
-  // state[2]   = placeholder
-  // state[1]   = mem_wren (for both S and d memory)
+  // state[7:3] = additional bits to make state unique
+  // state[2]   = d_mem_wren
+  // state[1]   = s_mem_wren  
   // state[0]   = done
-  parameter [6:0] IDLE               = 7'b0000_000;
-  parameter [6:0] INC_I              = 7'b0001_000;
-  parameter [6:0] SET_ADDR_S_I       = 7'b0010_000;
-  parameter [6:0] WAIT_READ_S_I      = 7'b0011_000;
-  parameter [6:0] READ_S_I           = 7'b0100_000;
-  parameter [6:0] COMPUTE_J          = 7'b0101_000;
-  parameter [6:0] SET_ADDR_S_J       = 7'b0110_000;
-  parameter [6:0] WAIT_READ_S_J      = 7'b0111_000;
-  parameter [6:0] READ_S_J           = 7'b1000_000;
-  parameter [6:0] SWAP_WRITE_J_TO_I  = 7'b1001_010;
-  parameter [6:0] SWAP_WRITE_I_TO_J  = 7'b1010_010;
-  parameter [6:0] COMPUTE_F          = 7'b1011_000;
-  parameter [6:0] SET_ADDR_F         = 7'b1100_000;
-  parameter [6:0] WAIT_READ_F        = 7'b1101_000;
-  parameter [6:0] READ_F             = 7'b1110_000;
-  parameter [6:0] WRITE_DECRYPTED    = 7'b1111_001; // Also sets done when last byte
+  parameter [7:0] IDLE               = 7'b00000_000;
+  parameter [7:0] INC_I              = 7'b00001_000;
+  parameter [7:0] SET_ADDR_S_I       = 7'b00010_000;
+  parameter [7:0] WAIT_READ_S_I      = 7'b00011_000;
+  parameter [7:0] READ_S_I           = 7'b00100_000;
+  parameter [7:0] COMPUTE_J          = 7'b00101_000;
+  parameter [7:0] SET_ADDR_S_J       = 7'b00110_000;
+  parameter [7:0] WAIT_READ_S_J      = 7'b00111_000;
+  parameter [7:0] READ_S_J           = 7'b01000_000;
+  parameter [7:0] SWAP_WRITE_J_TO_I  = 7'b01001_010;
+  parameter [7:0] SWAP_WRITE_I_TO_J  = 7'b01010_010;
+  parameter [7:0] COMPUTE_F          = 7'b01011_000;
+  parameter [7:0] SET_ADDR_F         = 7'b01100_000;
+  parameter [7:0] WAIT_READ_F        = 7'b01101_000;
+  parameter [7:0] READ_F             = 7'b01110_000;
+  parameter [7:0] WRITE_DECRYPTED    = 7'b01111_100;  
+  parameter [7:0] FINAL_WAIT         = 7'b10000_000;  
+  parameter [7:0] DONE               = 7'b10001_001;
+
 
   assign done      = state[0];
   assign s_mem_wren = state[1];
-  assign d_mem_wren = state[1]; // Shared write enable for simplicity
+  assign d_mem_wren = state[2];  
 
   logic [7:0] i, j, s_i, s_j, f;
   logic [7:0] k; // Message byte counter
@@ -138,12 +151,20 @@ module message_decryption (
 
         WRITE_DECRYPTED: begin
           if (k == MESSAGE_LENGTH-1) begin
-            if (done_ack) begin
-              state <= IDLE;
-            end
+            state <= FINAL_WAIT;
           end else begin
             k <= k + 1;
             state <= INC_I;
+          end
+        end
+
+        FINAL_WAIT: begin
+          state <= DONE;  // Ensure final write completes
+        end
+
+        DONE: begin
+          if (done_ack) begin
+            state <= IDLE;
           end
         end
 
@@ -163,14 +184,12 @@ module message_decryption (
 
     case (state)
       SET_ADDR_S_I,
-      WAIT_READ_S_I,
-      READ_S_I: begin
+      WAIT_READ_S_I: begin
         s_mem_addr = i;
       end
 
       SET_ADDR_S_J,
-      WAIT_READ_S_J,
-      READ_S_J: begin
+      WAIT_READ_S_J: begin
         s_mem_addr = j;
       end
 
@@ -185,8 +204,7 @@ module message_decryption (
       end
 
       SET_ADDR_F,
-      WAIT_READ_F,
-      READ_F: begin
+      WAIT_READ_F: begin
         s_mem_addr = s_i + s_j;
       end
 

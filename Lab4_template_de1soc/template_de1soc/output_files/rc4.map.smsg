@@ -1,2 +1,0 @@
-Info (10281): Verilog HDL Declaration information at ksa_shuffle.sv(12): object "done" differs only in case from object "DONE" in the same scope File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv Line: 12
-Info (10281): Verilog HDL Declaration information at decryption_core.sv(7): object "done" differs only in case from object "DONE" in the same scope File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 7

@@ -22,7 +22,7 @@ module datapath (
 
   // E Memory interface
   output logic [7:0]  e_mem_addr,
-  output logic        e_mem_wren
+  input logic         e_mem_data_read
   );
  
   logic [10:0] state;
@@ -40,13 +40,14 @@ module datapath (
   parameter [10:0] IDLE                 = 9'b0000_000_000_0;
   parameter [10:0] INIT_MEMORY          = 9'b0001_001_001_0;  // init_start = 1, register_for_init_memory = 1
   parameter [10:0] WAIT_FOR_INIT_MEMORY = 9'b0010_001_000_0;  // register_for_init_memory = 1
+
   parameter [10:0] SHUFFLE              = 9'b0011_010_010_0;  // shuffle_start = 1,  register_for_shuffle = 1
   parameter [10:0] WAIT_FOR_SHUFFLE     = 9'b0100_010_000_0;  // register_for_shuffle = 1
   
   parameter [10:0] DECRYPTION           = 9'b0101_100_100_0;  // decryption_start = 1,  register_for_decryption = 1
   parameter [10:0] WAIT_FOR_DECRYPTION  = 9'b0110_100_000_0;  // register_for_decryption = 1
  
-  parameter [10:0] COMPLETE             = 9'b0101_000_000_1;
+  parameter [10:0] COMPLETE             = 9'b0111_000_000_1;
 
   // Internal control wires
   logic init_start;
@@ -125,12 +126,13 @@ module datapath (
       .done_ack       (decrypt_done_ack),        
       .s_mem_addr     (s_mem_addr_decryption),  // S Memory interface        
       .s_mem_data_read(s_mem_data_read),    
+      .s_mem_data_write(s_mem_data_write_decryption),
       .s_mem_wren     (s_mem_wren_decryption),
       .d_mem_data_write(d_mem_data_write),    // D Memory interface  			
       .d_mem_addr     (d_mem_addr),              
       .d_mem_wren     (d_mem_wren), 
-		.e_mem_addr     (e_mem_addr),  	    // E Memory interface  	
-		.e_mem_data_read(e_mem_data_read), 		
+		  .e_mem_addr     (e_mem_addr),  	    // E Memory interface  	
+		  .e_mem_data_read(e_mem_data_read), 		
       .done           (decrypt_done)             
     );
 
