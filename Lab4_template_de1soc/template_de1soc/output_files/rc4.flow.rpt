@@ -1,5 +1,5 @@
 Flow report for rc4
-Fri Jun 13 19:55:24 2025
+Fri Jun 13 21:05:20 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Jun 13 19:55:19 2025       ;
+; Flow Status                     ; Successful - Fri Jun 13 21:05:15 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; rc4                                         ;
 ; Top-level Entity Name           ; ksa                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 187 / 32,070 ( < 1 % )                      ;
-; Total registers                 ; 252                                         ;
+; Logic utilization (in ALMs)     ; 326 / 32,070 ( 1 % )                        ;
+; Total registers                 ; 412                                         ;
 ; Total pins                      ; 69 / 457 ( 15 % )                           ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 2,048 / 4,065,280 ( < 1 % )                 ;
+; Total block memory bits         ; 2,560 / 4,065,280 ( < 1 % )                 ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/13/2025 19:53:31 ;
+; Start date & time ; 06/13/2025 21:02:11 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; rc4                 ;
 +-------------------+---------------------+
@@ -82,13 +82,14 @@ agreement for further details.
 ; AUTO_RAM_RECOGNITION                              ; Off                                    ; On                 ; --          ; --         ;
 ; AUTO_ROM_RECOGNITION                              ; Off                                    ; On                 ; --          ; --         ;
 ; BLOCK_RAM_AND_MLAB_EQUIVALENT_POWER_UP_CONDITIONS ; Care                                   ; Auto               ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                             ; 158765689006798.174986961141728        ; --                 ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                             ; 158765689006798.174987373042468        ; --                 ; --          ; --         ;
 ; EXTRACT_VERILOG_STATE_MACHINES                    ; Off                                    ; On                 ; --          ; --         ;
 ; EXTRACT_VHDL_STATE_MACHINES                       ; Off                                    ; On                 ; --          ; --         ;
 ; FITTER_EFFORT                                     ; Standard Fit                           ; Auto Fit           ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                            ; 85                                     ; --                 ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                            ; 0                                      ; --                 ; --          ; --         ;
 ; MISC_FILE                                         ; s_memory.cmp                           ; --                 ; --          ; --         ;
+; MISC_FILE                                         ; d_memory.cmp                           ; --                 ; --          ; --         ;
 ; OPTIMIZE_POWER_DURING_SYNTHESIS                   ; Off                                    ; Normal compilation ; --          ; --         ;
 ; PARTITION_COLOR                                   ; -- (Not supported for targeted family) ; --                 ; ksa         ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL               ; -- (Not supported for targeted family) ; --                 ; ksa         ; Top        ;
@@ -112,11 +113,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4924 MB             ; 00:00:24                           ;
-; Fitter                    ; 00:01:28     ; 1.1                     ; 7985 MB             ; 00:09:12                           ;
-; Assembler                 ; 00:00:04     ; 1.0                     ; 4839 MB             ; 00:00:04                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.4                     ; 5325 MB             ; 00:00:04                           ;
-; Total                     ; 00:01:49     ; --                      ; --                  ; 00:09:44                           ;
+; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 5019 MB             ; 00:00:39                           ;
+; Fitter                    ; 00:02:43     ; 1.0                     ; 7916 MB             ; 00:21:52                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 4845 MB             ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.7                     ; 5330 MB             ; 00:00:06                           ;
+; Total                     ; 00:03:07     ; --                      ; --                  ; 00:22:41                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

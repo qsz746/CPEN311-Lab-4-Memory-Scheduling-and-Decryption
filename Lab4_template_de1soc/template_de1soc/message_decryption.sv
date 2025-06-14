@@ -1,203 +1,203 @@
-// Task 2b
-
-//  i = 0, j=0
-//  for k = 0 to message_length-1 { // message_length is 32 in our implementation
-//  i = i+1
-//  j = j+s[i]
-//  swap values of s[i] and s[j]
-//  f = s[ (s[i]+s[j]) ]
-//  decrypted_output[k] = f xor encrypted_input[k] // 8 bit wide XOR function
-//  }
-
 module message_decryption (
-    input  logic        clk,
-    input  logic        reset_n,
+  input  logic        clk,
+  input  logic        reset_n,
+  input  logic        start,
+  input  logic        done_ack,           // Handshake acknowledgment
 
-    input  logic        start_decryption,
-    output logic        finish_decryption,
-
-    // s_memory
-    output logic [7:0]  s_mem_addr,
-    input  logic [7:0]  s_mem_data_read,
-    output logic [7:0]  s_mem_data_write, 
-    output logic        s_mem_wren,
-
-    // encryption ROM
-    output logic [4:0]  encrypted_input_mem_addr,
-    input  logic [7:0]  encrypted_input,
-
-    // decryption RAM
-    output logic [4:0]  decrypted_output_mem_addr,
-    output logic [7:0]  decrypted_output,
-    output logic        decrypted_output_wren
+  output logic [7:0]  s_mem_addr,         // Address for S memory
+  input  logic [7:0]  s_mem_data_read,    // S-box value from memory
+  output logic [7:0]  s_mem_data_write,
+  output logic        s_mem_wren,         // Write enable for S memory
+  
+  output logic [7:0]  d_mem_data_write,   // Decrypted output to memory
+  output logic [7:0]  d_mem_addr,         // Address for decrypted memory
+  output logic        d_mem_wren,         // Write enable for decrypted memory
+  
+  input  logic [7:0]  e_mem_data_read,    // Encrypted input from memory
+  output logic [7:0]  e_mem_addr,         // Address for encrypted memory
+  output logic        done
 );
 
-    parameter MESSAGE_LENGTH = 32;
+  localparam MESSAGE_LENGTH = 32;
+  
+  logic [6:0] state;
+  // FSM State definition
+  // state[6:3] = additional bits to make state unique
+  // state[2]   = placeholder
+  // state[1]   = mem_wren (for both S and d memory)
+  // state[0]   = done
+  parameter [6:0] IDLE               = 7'b0000_000;
+  parameter [6:0] INC_I              = 7'b0001_000;
+  parameter [6:0] SET_ADDR_S_I       = 7'b0010_000;
+  parameter [6:0] WAIT_READ_S_I      = 7'b0011_000;
+  parameter [6:0] READ_S_I           = 7'b0100_000;
+  parameter [6:0] COMPUTE_J          = 7'b0101_000;
+  parameter [6:0] SET_ADDR_S_J       = 7'b0110_000;
+  parameter [6:0] WAIT_READ_S_J      = 7'b0111_000;
+  parameter [6:0] READ_S_J           = 7'b1000_000;
+  parameter [6:0] SWAP_WRITE_J_TO_I  = 7'b1001_010;
+  parameter [6:0] SWAP_WRITE_I_TO_J  = 7'b1010_010;
+  parameter [6:0] COMPUTE_F          = 7'b1011_000;
+  parameter [6:0] SET_ADDR_F         = 7'b1100_000;
+  parameter [6:0] WAIT_READ_F        = 7'b1101_000;
+  parameter [6:0] READ_F             = 7'b1110_000;
+  parameter [6:0] WRITE_DECRYPTED    = 7'b1111_001; // Also sets done when last byte
 
-    logic [7:0] i, j, f, s_i, s_j;
-    logic [4:0] k;
+  assign done      = state[0];
+  assign s_mem_wren = state[1];
+  assign d_mem_wren = state[1]; // Shared write enable for simplicity
 
-    logic [7:0] temp_swap_reg; // Stores temporary values while swapping s_i and s_j
+  logic [7:0] i, j, s_i, s_j, f;
+  logic [7:0] k; // Message byte counter
+  logic [7:0] encrypted_byte;
 
-    logic [7:0] encryption_data;
-    logic [7:0] decryption_data;
-
-    typedef enum logic [3:0] {
-        IDLE, INCREMENT_I, READ_S_I, INCREMENT_J, READ_S_J,
-        WRITE_S_I_TO_S_J, WRITE_S_J_TO_S_I, // Separated swap into 2 cycles to prevent glitches
-        COMPUTE_F, READ_ENCRYPTED_INPUT, WRITE_DECRYPTED_OUTPUT, DONE
-    } decryption_states; 
-
-    decryption_states state;
-
-    // FSM for decryption loop
-    always_ff @(posedge clk or negedge reset_n) begin
-        if (!reset_n) begin
-        state     <= IDLE;
-        i         <= 8'd0;
-        j         <= 8'd0;
-        k         <= 5'd0;
-        f         <= 8'd0;
-        s_i       <= 8'd0;
-        s_j       <= 8'd0;
-        end else begin
-            case(state)
-                IDLE                    : begin
-                    if (start_decryption) begin
-                        state   <= INCREMENT_I;
-                        i       <= 8'd0;
-                        j       <= 8'd0;
-                        k       <= 5'd0;
-                    end
-                end
-
-                //  i = i+1
-                INCREMENT_I             : begin
-                    state   <= READ_S_I;
-                    i       <= i + 1;
-                end
-                
-                READ_S_I                : begin
-                    state   <= INCREMENT_J;
-                    s_i     <= s_mem_data_read;
-                end
-                
-                //  j = j+s[i]
-                INCREMENT_J             : begin
-                    state   <= READ_S_J;
-                    j       <= j + s_i; 
-                end
-                
-                // swap values of s[i] and s[j]
-                READ_S_J                : begin
-                    state   <= WRITE_S_I_TO_S_J;
-                    s_j     <= s_mem_data_read;
-                end
-                
-                WRITE_S_I_TO_S_J        : begin
-                    state           <= WRITE_S_J_TO_S_I;
-                    temp_swap_reg   <= s_j;
-                    s_j             <= s_i;
-                end
-                
-                WRITE_S_J_TO_S_I        : begin
-                    state   <= COMPUTE_F;
-                    s_i     <= temp_swap_reg;
-                end
-                
-                // f = s[ (s[i]+s[j]) ]
-                COMPUTE_F               : begin
-                    state   <= READ_ENCRYPTED_INPUT;
-                    f       <= s_mem_data_read;
-                end
-                
-                READ_ENCRYPTED_INPUT    : begin
-                    state           <= WRITE_DECRYPTED_OUTPUT;
-                    encryption_data <= encrypted_input;
-                end
-
-                // decrypted_output[k] = f xor encrypted_input[k] 
-                WRITE_DECRYPTED_OUTPUT  : begin
-                    decryption_data <= f ^ encryption_data;
-
-                    // if k == MESSAGE_LENGTH - 1, loop one more time
-                    if (k < MESSAGE_LENGTH - 1) begin
-                        state <= INCREMENT_I;
-                        k     <= k + 1;
-                    end else begin
-                        state <= DONE;
-                    end
-                end
-
-                DONE                    : begin
-                    state <= IDLE;
-                end
-            endcase
+  // State machine
+  always_ff @(posedge clk or negedge reset_n) begin
+    if (!reset_n) begin
+      state          <= IDLE;
+      i              <= 8'd0;
+      j              <= 8'd0;
+      s_i            <= 8'd0;
+      s_j            <= 8'd0;
+      f              <= 8'd0;
+      k              <= 8'd0;
+      encrypted_byte <= 8'd0;
+    end else begin
+      case (state)
+        IDLE: begin
+          if (start) begin
+            state <= INC_I;
+            i     <= 8'd0;
+            j     <= 8'd0;
+            k     <= 8'd0;
+          end
         end
+
+        INC_I: begin
+          i <= i + 1;
+          state <= SET_ADDR_S_I;
+        end
+
+        SET_ADDR_S_I: begin
+          state <= WAIT_READ_S_I;
+        end
+
+        WAIT_READ_S_I: begin
+          state <= READ_S_I;
+        end
+
+        READ_S_I: begin
+          s_i <= s_mem_data_read;
+          state <= COMPUTE_J;
+        end
+
+        COMPUTE_J: begin
+          j <= j + s_i;
+          state <= SET_ADDR_S_J;
+        end
+
+        SET_ADDR_S_J: begin
+          state <= WAIT_READ_S_J;
+        end
+
+        WAIT_READ_S_J: begin
+          state <= READ_S_J;
+        end
+
+        READ_S_J: begin
+          s_j <= s_mem_data_read;
+          state <= SWAP_WRITE_J_TO_I;
+        end
+
+        SWAP_WRITE_J_TO_I: begin
+          state <= SWAP_WRITE_I_TO_J;
+        end
+
+        SWAP_WRITE_I_TO_J: begin
+          state <= COMPUTE_F;
+        end
+
+        COMPUTE_F: begin
+          state <= SET_ADDR_F;
+        end
+
+        SET_ADDR_F: begin
+          state <= WAIT_READ_F;
+        end
+
+        WAIT_READ_F: begin
+          state <= READ_F;
+        end
+
+        READ_F: begin
+          f <= s_mem_data_read;
+          // Read encrypted byte at the same time
+          encrypted_byte <= e_mem_data_read;
+          state <= WRITE_DECRYPTED;
+        end
+
+        WRITE_DECRYPTED: begin
+          if (k == MESSAGE_LENGTH-1) begin
+            if (done_ack) begin
+              state <= IDLE;
+            end
+          end else begin
+            k <= k + 1;
+            state <= INC_I;
+          end
+        end
+
+        default: state <= IDLE;
+      endcase
     end
+  end
 
-    // Memory reading combinational logic
-    always_comb begin
-        s_mem_addr                  = 8'd0;
-        s_mem_data_write            = 8'd0;
-        s_mem_wren                  = 1'b0;
-        encrypted_input_mem_addr    = 5'd0;
-        decrypted_output_mem_addr   = 5'd0;
-        decrypted_output_wren       = 1'b0;
-        finish_decryption           = 1'b0;
+  // Output logic
+  always_comb begin
+    // Default outputs
+    s_mem_addr = 8'd0;
+    e_mem_addr = 8'd0;
+    d_mem_addr = 8'd0;
+    s_mem_data_write = 8'd0;
+    d_mem_data_write = 8'd0;
 
-        case(state)
-            IDLE                    : begin
-                // do nothing
-            end
+    case (state)
+      SET_ADDR_S_I,
+      WAIT_READ_S_I,
+      READ_S_I: begin
+        s_mem_addr = i;
+      end
 
-            INCREMENT_I             : begin
-                // do nothing
-            end
-            
-            READ_S_I                : begin
-                s_mem_addr = i;
-            end
-            
-            INCREMENT_J             : begin
-                // do nothing
-            end
-            
-            READ_S_J                : begin
-                s_mem_addr = j;
-            end
-            
-            WRITE_S_I_TO_S_J        : begin
-                s_mem_addr        = j;
-                s_mem_data_write  = s_i;
-                s_mem_wren        = 1'b1;
-            end
-            
-            WRITE_S_J_TO_S_I        : begin
-                s_mem_addr        = i;
-                s_mem_data_write  = temp_swap_reg;
-                s_mem_wren        = 1'b1;
-            end
-            
-            COMPUTE_F               : begin
-                s_mem_addr = s_i + s_j;
-            end
+      SET_ADDR_S_J,
+      WAIT_READ_S_J,
+      READ_S_J: begin
+        s_mem_addr = j;
+      end
 
-            READ_ENCRYPTED_INPUT    : begin
-                encrypted_input_mem_addr = k;
-            end
+      SWAP_WRITE_J_TO_I: begin
+        s_mem_addr = i;
+        s_mem_data_write = s_j;
+      end
 
-            WRITE_DECRYPTED_OUTPUT  : begin
-                decrypted_output_mem_addr   = k;
-                decrypted_output_wren       = 1'b1;
-            end
+      SWAP_WRITE_I_TO_J: begin
+        s_mem_addr = j;
+        s_mem_data_write = s_i;
+      end
 
-            DONE                    : begin
-                finish_decryption = 1'b1;
-            end
-        endcase
-    end
+      SET_ADDR_F,
+      WAIT_READ_F,
+      READ_F: begin
+        s_mem_addr = s_i + s_j;
+      end
 
-    assign decrypted_output = decryption_data;
+      WRITE_DECRYPTED: begin
+        e_mem_addr = k;
+        d_mem_addr = k;
+        d_mem_data_write = f ^ encrypted_byte; // XOR decryption
+      end
+
+      default: ; // No action for other states
+    endcase
+  end
 
 endmodule

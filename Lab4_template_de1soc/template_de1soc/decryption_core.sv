@@ -66,8 +66,22 @@ module decryption_core (
     .s_mem_addr     (s_mem_addr),
     .s_mem_data_write  (s_mem_data_write),
     .s_mem_data_read (s_mem_data_read),
-    .s_mem_wren     (s_mem_wren)
+    .s_mem_wren     (s_mem_wren),
+
+     // D Memory interface
+    .d_mem_addr     (d_mem_addr),
+    .d_mem_data_write  (d_mem_data_write),
+    .d_mem_data_read (d_mem_data_read),
+    .d_mem_wren     (d_mem_wren),
+
+
+     // E Memory interface
+    .e_mem_addr     (e_mem_addr),
+    .e_mem_wren     (e_mem_wren)
   );
+
+
+
 
   // Instantiate S-memory  
   s_memory memory_inst (
@@ -77,5 +91,19 @@ module decryption_core (
     .q          (s_mem_data_read),
     .wren       (s_mem_wren)
   );
+
+
+  d_memory d_mem (
+    .address(d_mem_addr),
+    .clock(clk),
+    .data(d_mem_data_write),
+    .wren(d_mem_wren),
+    .q(d_mem_data_read));
+
+
+  e_memory e_mem (
+    .address(e_mem_addr),
+    .clock(clk),
+    .q(e_mem_data_read));
 
 endmodule

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rc4
-Fri Jun 13 19:53:44 2025
+Fri Jun 13 21:02:25 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -21,18 +21,27 @@ Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
  13. Inverted Register Statistics
  14. Multiplexer Restructuring Statistics (Restructuring Performed)
  15. Source assignments for decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|altsyncram_kq83:altsyncram1
- 16. Parameter Settings for User Entity Instance: decryption_core:core_inst
- 17. Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst
- 18. Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst
- 19. Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst
- 20. Parameter Settings for User Entity Instance: decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component
- 21. Parameter Settings for Inferred Entity Instance: decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0
- 22. altsyncram Parameter Settings by Entity Instance
- 23. In-System Memory Content Editor Settings
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
- 27. Analysis & Synthesis Suppressed Messages
+ 16. Source assignments for decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|altsyncram_um83:altsyncram1
+ 17. Source assignments for decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|altsyncram_85h3:altsyncram1
+ 18. Parameter Settings for User Entity Instance: decryption_core:core_inst
+ 19. Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst
+ 20. Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst
+ 21. Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst
+ 22. Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst
+ 23. Parameter Settings for User Entity Instance: decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component
+ 25. Parameter Settings for User Entity Instance: decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component
+ 26. Parameter Settings for Inferred Entity Instance: decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0
+ 27. altsyncram Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "decryption_core:core_inst|e_memory:e_mem"
+ 29. Port Connectivity Checks: "decryption_core:core_inst|d_memory:d_mem"
+ 30. Port Connectivity Checks: "decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst"
+ 31. Port Connectivity Checks: "decryption_core:core_inst|datapath:datapath_inst"
+ 32. In-System Memory Content Editor Settings
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
+ 36. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -59,16 +68,16 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Jun 13 19:53:44 2025       ;
+; Analysis & Synthesis Status     ; Successful - Fri Jun 13 21:02:25 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; rc4                                         ;
 ; Top-level Entity Name           ; ksa                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 213                                         ;
+; Total registers                 ; 368                                         ;
 ; Total pins                      ; 67                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 2,048                                       ;
+; Total block memory bits         ; 2,560                                       ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -189,7 +198,8 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -204,6 +214,8 @@ agreement for further details.
 ; ksa_shuffle.sv                                                     ; yes             ; User SystemVerilog HDL File                  ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv                                                     ;             ;
 ; datapath.sv                                                        ; yes             ; User SystemVerilog HDL File                  ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv                                                        ;             ;
 ; decryption_core.sv                                                 ; yes             ; User SystemVerilog HDL File                  ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv                                                 ;             ;
+; d_memory.vhd                                                       ; yes             ; User Wizard-Generated File                   ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/d_memory.vhd                                                       ;             ;
+; message_decryption.sv                                              ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/message_decryption.sv                                              ;             ;
 ; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf                                                                     ;             ;
 ; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                              ;             ;
 ; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                        ;             ;
@@ -219,6 +231,12 @@ agreement for further details.
 ; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                                                      ;             ;
 ; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                                                  ;             ;
 ; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_rom_sr.vhd                                                                     ;             ;
+; db/altsyncram_c3b4.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_c3b4.tdf                                             ;             ;
+; db/altsyncram_um83.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_um83.tdf                                             ;             ;
+; e_memory.vhd                                                       ; yes             ; Auto-Found Wizard-Generated File             ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/e_memory.vhd                                                       ;             ;
+; db/altsyncram_3fg4.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_3fg4.tdf                                             ;             ;
+; db/altsyncram_85h3.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_85h3.tdf                                             ;             ;
+; ../secret_messages/msg_1_for_task2b/message.mif                    ; yes             ; Auto-Found Memory Initialization File        ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/secret_messages/msg_1_for_task2b/message.mif                       ;             ;
 ; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_hub.vhd                                                                        ; altera_sld  ;
 ; db/ip/sld73f98f60/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/ip/sld73f98f60/alt_sld_fab.v                                    ; alt_sld_fab ;
 ; db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
@@ -241,27 +259,27 @@ agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 187                      ;
+; Estimate of Logic utilization (ALMs needed) ; 329                      ;
 ;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 299                      ;
-;     -- 7 input functions                    ; 2                        ;
-;     -- 6 input functions                    ; 58                       ;
-;     -- 5 input functions                    ; 61                       ;
-;     -- 4 input functions                    ; 43                       ;
-;     -- <=3 input functions                  ; 135                      ;
+; Combinational ALUT usage for logic          ; 466                      ;
+;     -- 7 input functions                    ; 7                        ;
+;     -- 6 input functions                    ; 104                      ;
+;     -- 5 input functions                    ; 95                       ;
+;     -- 4 input functions                    ; 73                       ;
+;     -- <=3 input functions                  ; 187                      ;
 ;                                             ;                          ;
-; Dedicated logic registers                   ; 213                      ;
+; Dedicated logic registers                   ; 368                      ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 67                       ;
 ; Total MLAB memory bits                      ; 0                        ;
-; Total block memory bits                     ; 2048                     ;
+; Total block memory bits                     ; 2560                     ;
 ;                                             ;                          ;
 ; Total DSP Blocks                            ; 0                        ;
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
-; Maximum fan-out                             ; 156                      ;
-; Total fan-out                               ; 2210                     ;
-; Average fan-out                             ; 3.33                     ;
+; Maximum fan-out                             ; 295                      ;
+; Total fan-out                               ; 3802                     ;
+; Average fan-out                             ; 3.80                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -270,40 +288,55 @@ agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                             ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |ksa                                                                                                                                    ; 299 (2)             ; 213 (1)                   ; 2048              ; 0          ; 67   ; 0            ; |ksa                                                                                                                                                                                                                                                                                                                                            ; ksa                               ; work         ;
-;    |decryption_core:core_inst|                                                                                                          ; 198 (3)             ; 125 (3)                   ; 2048              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst                                                                                                                                                                                                                                                                                                                  ; decryption_core                   ; work         ;
-;       |datapath:datapath_inst|                                                                                                          ; 154 (52)            ; 85 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst                                                                                                                                                                                                                                                                                           ; datapath                          ; work         ;
-;          |ksa_shuffle:ksa_shuffle_inst|                                                                                                 ; 87 (47)             ; 46 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst                                                                                                                                                                                                                                                              ; ksa_shuffle                       ; work         ;
+; |ksa                                                                                                                                    ; 466 (3)             ; 368 (1)                   ; 2560              ; 0          ; 67   ; 0            ; |ksa                                                                                                                                                                                                                                                                                                                                            ; ksa                               ; work         ;
+;    |decryption_core:core_inst|                                                                                                          ; 341 (3)             ; 235 (3)                   ; 2560              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst                                                                                                                                                                                                                                                                                                                  ; decryption_core                   ; work         ;
+;       |d_memory:d_mem|                                                                                                                  ; 37 (0)              ; 32 (0)                    ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|d_memory:d_mem                                                                                                                                                                                                                                                                                                   ; d_memory                          ; work         ;
+;          |altsyncram:altsyncram_component|                                                                                              ; 37 (0)              ; 32 (0)                    ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                   ; altsyncram                        ; work         ;
+;             |altsyncram_c3b4:auto_generated|                                                                                            ; 37 (0)              ; 32 (0)                    ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated                                                                                                                                                                                                                                    ; altsyncram_c3b4                   ; work         ;
+;                |altsyncram_um83:altsyncram1|                                                                                            ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|altsyncram_um83:altsyncram1                                                                                                                                                                                                        ; altsyncram_um83                   ; work         ;
+;                |sld_mod_ram_rom:mgl_prim2|                                                                                              ; 37 (20)             ; 32 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                                          ; sld_mod_ram_rom                   ; work         ;
+;                   |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                                  ; 17 (17)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                                       ; sld_rom_sr                        ; work         ;
+;       |datapath:datapath_inst|                                                                                                          ; 223 (65)            ; 131 (26)                  ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst                                                                                                                                                                                                                                                                                           ; datapath                          ; work         ;
+;          |ksa_shuffle:ksa_shuffle_inst|                                                                                                 ; 89 (49)             ; 46 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst                                                                                                                                                                                                                                                              ; ksa_shuffle                       ; work         ;
 ;             |lpm_divide:Mod0|                                                                                                           ; 40 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0                                                                                                                                                                                                                                              ; lpm_divide                        ; work         ;
 ;                |lpm_divide_62m:auto_generated|                                                                                          ; 40 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0|lpm_divide_62m:auto_generated                                                                                                                                                                                                                ; lpm_divide_62m                    ; work         ;
 ;                   |sign_div_unsign_9kh:divider|                                                                                         ; 40 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider                                                                                                                                                                                    ; sign_div_unsign_9kh               ; work         ;
 ;                      |alt_u_div_ose:divider|                                                                                            ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0|lpm_divide_62m:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_ose:divider                                                                                                                                                              ; alt_u_div_ose                     ; work         ;
 ;          |memory_init:memory_init_inst|                                                                                                 ; 15 (15)             ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst                                                                                                                                                                                                                                                              ; memory_init                       ; work         ;
+;          |message_decryption:message_decryption_inst|                                                                                   ; 54 (54)             ; 47 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst                                                                                                                                                                                                                                                ; message_decryption                ; work         ;
+;       |e_memory:e_mem|                                                                                                                  ; 37 (0)              ; 32 (0)                    ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|e_memory:e_mem                                                                                                                                                                                                                                                                                                   ; e_memory                          ; work         ;
+;          |altsyncram:altsyncram_component|                                                                                              ; 37 (0)              ; 32 (0)                    ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                   ; altsyncram                        ; work         ;
+;             |altsyncram_3fg4:auto_generated|                                                                                            ; 37 (0)              ; 32 (0)                    ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated                                                                                                                                                                                                                                    ; altsyncram_3fg4                   ; work         ;
+;                |altsyncram_85h3:altsyncram1|                                                                                            ; 0 (0)               ; 0 (0)                     ; 256               ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|altsyncram_85h3:altsyncram1                                                                                                                                                                                                        ; altsyncram_85h3                   ; work         ;
+;                |sld_mod_ram_rom:mgl_prim2|                                                                                              ; 37 (20)             ; 32 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                                          ; sld_mod_ram_rom                   ; work         ;
+;                   |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                                  ; 17 (17)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                                       ; sld_rom_sr                        ; work         ;
 ;       |s_memory:memory_inst|                                                                                                            ; 41 (0)              ; 37 (0)                    ; 2048              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|s_memory:memory_inst                                                                                                                                                                                                                                                                                             ; s_memory                          ; work         ;
 ;          |altsyncram:altsyncram_component|                                                                                              ; 41 (0)              ; 37 (0)                    ; 2048              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component                                                                                                                                                                                                                                                             ; altsyncram                        ; work         ;
 ;             |altsyncram_m5b4:auto_generated|                                                                                            ; 41 (0)              ; 37 (0)                    ; 2048              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated                                                                                                                                                                                                                              ; altsyncram_m5b4                   ; work         ;
 ;                |altsyncram_kq83:altsyncram1|                                                                                            ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|altsyncram_kq83:altsyncram1                                                                                                                                                                                                  ; altsyncram_kq83                   ; work         ;
 ;                |sld_mod_ram_rom:mgl_prim2|                                                                                              ; 41 (23)             ; 37 (28)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                                    ; sld_mod_ram_rom                   ; work         ;
 ;                   |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                                  ; 18 (18)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                                 ; sld_rom_sr                        ; work         ;
-;    |sld_hub:auto_hub|                                                                                                                   ; 99 (1)              ; 87 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
-;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 98 (0)              ; 87 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
-;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 98 (0)              ; 87 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
-;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 98 (1)              ; 87 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
-;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 97 (0)              ; 82 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
-;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 97 (65)             ; 82 (54)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
-;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 14 (14)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
-;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 18 (18)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 122 (1)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 121 (0)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 121 (0)             ; 132 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 121 (1)             ; 132 (7)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 120 (0)             ; 125 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 120 (83)            ; 125 (96)                  ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 18 (18)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 19 (19)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                             ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------+------------+----------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                                                                                                 ; Type       ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------+------------+----------------+--------------+--------------+--------------+--------------+------+------+
-; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|altsyncram_kq83:altsyncram1|ALTSYNCRAM ; M10K block ; True Dual Port ; 256          ; 8            ; 256          ; 8            ; 2048 ; None ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------+------------+----------------+--------------+--------------+--------------+--------------+------+------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                        ;
++------------------------------------------------------------------------------------------------------------------------------------------------------+------------+----------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; Name                                                                                                                                                 ; Type       ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                             ;
++------------------------------------------------------------------------------------------------------------------------------------------------------+------------+----------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
+; decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|altsyncram_um83:altsyncram1|ALTSYNCRAM       ; M10K block ; True Dual Port ; 32           ; 8            ; 32           ; 8            ; 256  ; None                                            ;
+; decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|altsyncram_85h3:altsyncram1|ALTSYNCRAM       ; M10K block ; True Dual Port ; 32           ; 8            ; 32           ; 8            ; 256  ; ../secret_messages/msg_1_for_task2b/message.mif ;
+; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|altsyncram_kq83:altsyncram1|ALTSYNCRAM ; M10K block ; True Dual Port ; 256          ; 8            ; 256          ; 8            ; 2048 ; None                                            ;
++------------------------------------------------------------------------------------------------------------------------------------------------------+------------+----------------+--------------+--------------+--------------+--------------+------+-------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -316,22 +349,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
 ; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
 ; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |ksa|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
+; Altera ; RAM: 1-PORT  ; 16.1    ; N/A          ; N/A          ; |ksa|decryption_core:core_inst|d_memory:d_mem                                                                                                                                                                                                                            ; d_memory.vhd    ;
 ; Altera ; RAM: 1-PORT  ; 16.1    ; N/A          ; N/A          ; |ksa|decryption_core:core_inst|s_memory:memory_inst                                                                                                                                                                                                                      ; s_memory.vhd    ;
 +--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                                                      ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
-; Register name                                                                                                                                                          ; Reason for Removal                             ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
-; decryption_core:core_inst|state[2]                                                                                                                                     ; Merged with decryption_core:core_inst|state[1] ;
-; decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|state[2]                                                                                 ; Stuck at GND due to stuck port data_in         ;
-; decryption_core:core_inst|datapath:datapath_inst|state[8]                                                                                                              ; Stuck at GND due to stuck port clock_enable    ;
-; decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[2]                                                                                 ; Stuck at GND due to stuck port clock_enable    ;
-; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3] ; Stuck at GND due to stuck port data_in         ;
-; Total Number of Removed Registers = 5                                                                                                                                  ;                                                ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                              ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------+
+; Register name                                                                                                                                                          ; Reason for Removal                                                     ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------+
+; decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst|encrypted_byte[0]                                                          ; Stuck at GND due to stuck port data_in                                 ;
+; decryption_core:core_inst|state[2]                                                                                                                                     ; Merged with decryption_core:core_inst|state[1]                         ;
+; decryption_core:core_inst|datapath:datapath_inst|state[3,9]                                                                                                            ; Merged with decryption_core:core_inst|datapath:datapath_inst|state[10] ;
+; decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst|state[2]                                                                   ; Stuck at GND due to stuck port data_in                                 ;
+; decryption_core:core_inst|datapath:datapath_inst|state[6,10]                                                                                                           ; Stuck at GND due to stuck port data_in                                 ;
+; decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|state[2]                                                                                 ; Stuck at GND due to stuck port data_in                                 ;
+; decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[2]                                                                                 ; Stuck at GND due to stuck port clock_enable                            ;
+; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3] ; Stuck at GND due to stuck port data_in                                 ;
+; decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3]       ; Stuck at GND due to stuck port data_in                                 ;
+; decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3]       ; Stuck at GND due to stuck port data_in                                 ;
+; Total Number of Removed Registers = 12                                                                                                                                 ;                                                                        ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -339,12 +378,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 213   ;
-; Number of registers using Synchronous Clear  ; 49    ;
-; Number of registers using Synchronous Load   ; 19    ;
-; Number of registers using Asynchronous Clear ; 142   ;
+; Total registers                              ; 368   ;
+; Number of registers using Synchronous Clear  ; 50    ;
+; Number of registers using Synchronous Load   ; 82    ;
+; Number of registers using Asynchronous Clear ; 262   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 157   ;
+; Number of registers using Clock Enable       ; 296   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -366,21 +405,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[1]                                                ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3]                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[7]                                                ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[7]                                                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[1]                                     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[0]                                                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3]                                           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[5]                                                      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[0]                                           ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[6]                                                ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[3]                                                      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[0]                                                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst|k[1]                                                                                                           ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|key_byte[1]                                                                                                                  ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[3] ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|state[1]                                                                                                                                                                         ;
-; 33:1               ; 8 bits    ; 176 LEs       ; 0 LEs                ; 176 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|counter[6]                                                                                                                   ;
-; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[0]      ;
-; 35:1               ; 5 bits    ; 115 LEs       ; 105 LEs              ; 10 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[2]                                                                                                                     ;
-; 67:1               ; 8 bits    ; 352 LEs       ; 0 LEs                ; 352 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|j[1]                                                                                                                         ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[3]       ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[0]       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|state[0]                                                                                                                                                                         ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 0 LEs                ; 176 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|counter[1]                                                                                                                   ;
+; 65:1               ; 6 bits    ; 258 LEs       ; 114 LEs              ; 144 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst|state[6]                                                                                                       ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[1]      ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[0]            ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[0]            ;
+; 35:1               ; 5 bits    ; 115 LEs       ; 105 LEs              ; 10 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[3]                                                                                                                     ;
+; 67:1               ; 8 bits    ; 352 LEs       ; 0 LEs                ; 352 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|j[2]                                                                                                                         ;
 ; 130:1              ; 5 bits    ; 430 LEs       ; 85 LEs               ; 345 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|state[5]                                                                                                                     ;
-; 130:1              ; 8 bits    ; 688 LEs       ; 16 LEs               ; 672 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|s_mem_data_write_reg[1]                                                                                                                                   ;
-; 68:1               ; 8 bits    ; 360 LEs       ; 0 LEs                ; 360 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|i[6]                                                                                                                         ;
-; 64:1               ; 8 bits    ; 336 LEs       ; 16 LEs               ; 320 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|s_mem_addr_reg[2]                                                                                                                                         ;
-; 516:1              ; 9 bits    ; 3096 LEs      ; 3069 LEs             ; 27 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|state[7]                                                                                                                                                  ;
+; 131:1              ; 8 bits    ; 696 LEs       ; 16 LEs               ; 680 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|s_mem_data_write_reg[5]                                                                                                                                   ;
+; 68:1               ; 8 bits    ; 360 LEs       ; 0 LEs                ; 360 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|i[5]                                                                                                                         ;
+; 11:1               ; 6 bits    ; 42 LEs        ; 18 LEs               ; 24 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|state[0]                                                                                                                                                  ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|state[5]                                                                                                                                                  ;
+; 128:1              ; 8 bits    ; 680 LEs       ; 32 LEs               ; 648 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|s_mem_addr_reg[1]                                                                                                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -391,6 +443,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; OFF   ; -    ; -                                                                                                               ;
 +---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|altsyncram_um83:altsyncram1 ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value ; From ; To                                                                                                        ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; OFF   ; -    ; -                                                                                                         ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|altsyncram_85h3:altsyncram1 ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value ; From ; To                                                                                                        ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; OFF   ; -    ; -                                                                                                         ;
++---------------------------------+-------+------+-----------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------+
@@ -407,16 +477,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-----------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst ;
-+----------------------+-----------+------------------------------------------------------------+
-; Parameter Name       ; Value     ; Type                                                       ;
-+----------------------+-----------+------------------------------------------------------------+
-; IDLE                 ; 000000000 ; Unsigned Binary                                            ;
-; INIT_MEMORY          ; 000101010 ; Unsigned Binary                                            ;
-; WAIT_FOR_INIT_MEMORY ; 001001000 ; Unsigned Binary                                            ;
-; SHUFFLE              ; 001110100 ; Unsigned Binary                                            ;
-; WAIT_FOR_SHUFFLE     ; 010010000 ; Unsigned Binary                                            ;
-; COMPLETE             ; 010100001 ; Unsigned Binary                                            ;
-+----------------------+-----------+------------------------------------------------------------+
++----------------------+-------------+----------------------------------------------------------+
+; Parameter Name       ; Value       ; Type                                                     ;
++----------------------+-------------+----------------------------------------------------------+
+; IDLE                 ; 00000000000 ; Unsigned Binary                                          ;
+; INIT_MEMORY          ; 00010010010 ; Unsigned Binary                                          ;
+; WAIT_FOR_INIT_MEMORY ; 00100010000 ; Unsigned Binary                                          ;
+; SHUFFLE              ; 00110100100 ; Unsigned Binary                                          ;
+; WAIT_FOR_SHUFFLE     ; 00000100000 ; Unsigned Binary                                          ;
+; DECRYPTION           ; 00011001000 ; Unsigned Binary                                          ;
+; WAIT_FOR_DECRYPTION  ; 00101000000 ; Unsigned Binary                                          ;
+; COMPLETE             ; 00010000001 ; Unsigned Binary                                          ;
++----------------------+-------------+----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -452,6 +524,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; FINAL_WAIT        ; 1011000 ; Unsigned Binary                                                                              ;
 ; DONE              ; 1110001 ; Unsigned Binary                                                                              ;
 +-------------------+---------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst ;
++-------------------+---------+------------------------------------------------------------------------------------------------------------+
+; Parameter Name    ; Value   ; Type                                                                                                       ;
++-------------------+---------+------------------------------------------------------------------------------------------------------------+
+; IDLE              ; 0000000 ; Unsigned Binary                                                                                            ;
+; INC_I             ; 0001000 ; Unsigned Binary                                                                                            ;
+; SET_ADDR_S_I      ; 0010000 ; Unsigned Binary                                                                                            ;
+; WAIT_READ_S_I     ; 0011000 ; Unsigned Binary                                                                                            ;
+; READ_S_I          ; 0100000 ; Unsigned Binary                                                                                            ;
+; COMPUTE_J         ; 0101000 ; Unsigned Binary                                                                                            ;
+; SET_ADDR_S_J      ; 0110000 ; Unsigned Binary                                                                                            ;
+; WAIT_READ_S_J     ; 0111000 ; Unsigned Binary                                                                                            ;
+; READ_S_J          ; 1000000 ; Unsigned Binary                                                                                            ;
+; SWAP_WRITE_J_TO_I ; 1001010 ; Unsigned Binary                                                                                            ;
+; SWAP_WRITE_I_TO_J ; 1010010 ; Unsigned Binary                                                                                            ;
+; COMPUTE_F         ; 1011000 ; Unsigned Binary                                                                                            ;
+; SET_ADDR_F        ; 1100000 ; Unsigned Binary                                                                                            ;
+; WAIT_READ_F       ; 1101000 ; Unsigned Binary                                                                                            ;
+; READ_F            ; 1110000 ; Unsigned Binary                                                                                            ;
+; WRITE_DECRYPTED   ; 1111001 ; Unsigned Binary                                                                                            ;
++-------------------+---------+------------------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -516,6 +613,128 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                      ;
++------------------------------------+----------------------+-----------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                   ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                   ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                            ;
+; WIDTHAD_A                          ; 5                    ; Signed Integer                                            ;
+; NUMWORDS_A                         ; 32                   ; Signed Integer                                            ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                   ;
+; WIDTH_B                            ; 1                    ; Signed Integer                                            ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer                                            ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer                                            ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                            ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                                            ;
+; RAM_BLOCK_TYPE                     ; M10K                 ; Untyped                                                   ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                                            ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                                            ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                                            ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_c3b4      ; Untyped                                                   ;
++------------------------------------+----------------------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component ;
++------------------------------------+-------------------------------------------------+--------------------------------+
+; Parameter Name                     ; Value                                           ; Type                           ;
++------------------------------------+-------------------------------------------------+--------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                               ; Untyped                        ;
+; AUTO_CARRY_CHAINS                  ; ON                                              ; AUTO_CARRY                     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                             ; IGNORE_CARRY                   ;
+; AUTO_CASCADE_CHAINS                ; ON                                              ; AUTO_CASCADE                   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                             ; IGNORE_CASCADE                 ;
+; WIDTH_BYTEENA                      ; 1                                               ; Untyped                        ;
+; OPERATION_MODE                     ; ROM                                             ; Untyped                        ;
+; WIDTH_A                            ; 8                                               ; Signed Integer                 ;
+; WIDTHAD_A                          ; 5                                               ; Signed Integer                 ;
+; NUMWORDS_A                         ; 32                                              ; Signed Integer                 ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                    ; Untyped                        ;
+; ADDRESS_ACLR_A                     ; NONE                                            ; Untyped                        ;
+; OUTDATA_ACLR_A                     ; NONE                                            ; Untyped                        ;
+; WRCONTROL_ACLR_A                   ; NONE                                            ; Untyped                        ;
+; INDATA_ACLR_A                      ; NONE                                            ; Untyped                        ;
+; BYTEENA_ACLR_A                     ; NONE                                            ; Untyped                        ;
+; WIDTH_B                            ; 1                                               ; Signed Integer                 ;
+; WIDTHAD_B                          ; 1                                               ; Signed Integer                 ;
+; NUMWORDS_B                         ; 0                                               ; Signed Integer                 ;
+; INDATA_REG_B                       ; CLOCK1                                          ; Untyped                        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                          ; Untyped                        ;
+; RDCONTROL_REG_B                    ; CLOCK1                                          ; Untyped                        ;
+; ADDRESS_REG_B                      ; CLOCK1                                          ; Untyped                        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                    ; Untyped                        ;
+; BYTEENA_REG_B                      ; CLOCK1                                          ; Untyped                        ;
+; INDATA_ACLR_B                      ; NONE                                            ; Untyped                        ;
+; WRCONTROL_ACLR_B                   ; NONE                                            ; Untyped                        ;
+; ADDRESS_ACLR_B                     ; NONE                                            ; Untyped                        ;
+; OUTDATA_ACLR_B                     ; NONE                                            ; Untyped                        ;
+; RDCONTROL_ACLR_B                   ; NONE                                            ; Untyped                        ;
+; BYTEENA_ACLR_B                     ; NONE                                            ; Untyped                        ;
+; WIDTH_BYTEENA_A                    ; 1                                               ; Signed Integer                 ;
+; WIDTH_BYTEENA_B                    ; 1                                               ; Signed Integer                 ;
+; RAM_BLOCK_TYPE                     ; M10K                                            ; Untyped                        ;
+; BYTE_SIZE                          ; 8                                               ; Signed Integer                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                       ; Untyped                        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                            ; Untyped                        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                            ; Untyped                        ;
+; INIT_FILE                          ; ../secret_messages/msg_1_for_task2b/message.mif ; Untyped                        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                          ; Untyped                        ;
+; MAXIMUM_DEPTH                      ; 0                                               ; Signed Integer                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                                          ; Untyped                        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                          ; Untyped                        ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                                          ; Untyped                        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                          ; Untyped                        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                 ; Untyped                        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                 ; Untyped                        ;
+; ENABLE_ECC                         ; FALSE                                           ; Untyped                        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                           ; Untyped                        ;
+; WIDTH_ECCSTATUS                    ; 3                                               ; Signed Integer                 ;
+; DEVICE_FAMILY                      ; Cyclone V                                       ; Untyped                        ;
+; CBXI_PARAMETER                     ; altsyncram_3fg4                                 ; Untyped                        ;
++------------------------------------+-------------------------------------------------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0 ;
 +------------------------+----------------+------------------------------------------------------------------------------------------------------+
@@ -544,7 +763,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+--------------------------------------------------------------------------------+
 ; Name                                      ; Value                                                                          ;
 +-------------------------------------------+--------------------------------------------------------------------------------+
-; Number of entity instances                ; 1                                                                              ;
+; Number of entity instances                ; 3                                                                              ;
 ; Entity Instance                           ; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component ;
 ;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                    ;
 ;     -- WIDTH_A                            ; 8                                                                              ;
@@ -556,7 +775,75 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                   ;
 ;     -- RAM_BLOCK_TYPE                     ; M10K                                                                           ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                      ;
+; Entity Instance                           ; decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component       ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                    ;
+;     -- WIDTH_A                            ; 8                                                                              ;
+;     -- NUMWORDS_A                         ; 32                                                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                   ;
+;     -- WIDTH_B                            ; 1                                                                              ;
+;     -- NUMWORDS_B                         ; 0                                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                      ;
+; Entity Instance                           ; decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component       ;
+;     -- OPERATION_MODE                     ; ROM                                                                            ;
+;     -- WIDTH_A                            ; 8                                                                              ;
+;     -- NUMWORDS_A                         ; 32                                                                             ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                   ;
+;     -- WIDTH_B                            ; 1                                                                              ;
+;     -- NUMWORDS_B                         ; 0                                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; M10K                                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                      ;
 +-------------------------------------------+--------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decryption_core:core_inst|e_memory:e_mem"                                                      ;
++---------+--------+------------------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity         ; Details                                                                             ;
++---------+--------+------------------+-------------------------------------------------------------------------------------+
+; address ; Input  ; Critical Warning ; Types are incompatible                                                              ;
+; q       ; Output ; Critical Warning ; Types are incompatible                                                              ;
+; q       ; Output ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+------------------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "decryption_core:core_inst|d_memory:d_mem" ;
++---------+--------+------------------+--------------------------------+
+; Port    ; Type   ; Severity         ; Details                        ;
++---------+--------+------------------+--------------------------------+
+; address ; Input  ; Critical Warning ; Types are incompatible         ;
+; data    ; Input  ; Critical Warning ; Types are incompatible         ;
+; q       ; Output ; Critical Warning ; Types are incompatible         ;
++---------+--------+------------------+--------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst"                                                                        ;
++------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                                                                                                 ;
++------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; e_mem_data_read  ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "e_mem_data_read[7..1]" will be connected to GND. ;
+; done             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                     ;
+; s_mem_data_write ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                ;
++------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decryption_core:core_inst|datapath:datapath_inst"                                                                                                                   ;
++------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                                                                                                 ;
++------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; d_mem_addr       ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "d_mem_addr[7..1]" have no fanouts                           ;
+; d_mem_data_write ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "d_mem_data_write[7..1]" have no fanouts                     ;
+; d_mem_data_read  ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "d_mem_data_read[7..1]" will be connected to GND. ;
+; e_mem_addr       ; Output ; Warning  ; Output or bidir port (8 bits) is wider than the port expression (1 bits) it drives; bit(s) "e_mem_addr[7..1]" have no fanouts                           ;
+; e_mem_wren       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                     ;
++------------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -565,6 +852,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Instance Index ; Instance ID ; Width ; Depth ; Mode       ; Hierarchy Location                                                                                            ;
 +----------------+-------------+-------+-------+------------+---------------------------------------------------------------------------------------------------------------+
 ; 0              ; S           ; 8     ; 256   ; Read/Write ; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated ;
+; 1              ; D           ; 8     ; 32    ; Read/Write ; decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated       ;
+; 2              ; E           ; 8     ; 32    ; Read/Write ; decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated       ;
 +----------------+-------------+-------+-------+------------+---------------------------------------------------------------------------------------------------------------+
 
 
@@ -573,40 +862,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 126                         ;
-;     CLR               ; 26                          ;
-;     CLR SCLR          ; 1                           ;
+; arriav_ff             ; 236                         ;
+;     CLR               ; 41                          ;
+;     CLR SCLR          ; 2                           ;
 ;     CLR SLD           ; 1                           ;
-;     ENA               ; 9                           ;
-;     ENA CLR           ; 31                          ;
+;     ENA               ; 27                          ;
+;     ENA CLR           ; 91                          ;
 ;     ENA CLR SCLR      ; 40                          ;
 ;     ENA CLR SCLR SLD  ; 1                           ;
 ;     ENA CLR SLD       ; 8                           ;
-;     ENA SLD           ; 8                           ;
+;     ENA SLD           ; 24                          ;
 ;     plain             ; 1                           ;
-; arriav_lcell_comb     ; 201                         ;
-;     arith             ; 51                          ;
+; arriav_lcell_comb     ; 344                         ;
+;     arith             ; 83                          ;
 ;         0 data inputs ; 7                           ;
-;         1 data inputs ; 32                          ;
+;         1 data inputs ; 48                          ;
+;         2 data inputs ; 16                          ;
 ;         3 data inputs ; 7                           ;
 ;         4 data inputs ; 5                           ;
-;     extend            ; 2                           ;
-;         7 data inputs ; 2                           ;
-;     normal            ; 140                         ;
+;     extend            ; 4                           ;
+;         7 data inputs ; 4                           ;
+;     normal            ; 249                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 13                          ;
-;         4 data inputs ; 23                          ;
-;         5 data inputs ; 41                          ;
-;         6 data inputs ; 44                          ;
+;         2 data inputs ; 28                          ;
+;         3 data inputs ; 28                          ;
+;         4 data inputs ; 49                          ;
+;         5 data inputs ; 67                          ;
+;         6 data inputs ; 75                          ;
 ;     shared            ; 8                           ;
 ;         3 data inputs ; 8                           ;
-; boundary_port         ; 94                          ;
-; stratixv_ram_block    ; 8                           ;
+; boundary_port         ; 148                         ;
+; stratixv_ram_block    ; 24                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 10.40                       ;
-; Average LUT depth     ; 2.74                        ;
+; Average LUT depth     ; 2.37                        ;
 +-----------------------+-----------------------------+
 
 
@@ -625,7 +915,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
-    Info: Processing started: Fri Jun 13 19:53:30 2025
+    Info: Processing started: Fri Jun 13 21:02:10 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rc4 -c rc4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -640,14 +930,33 @@ Info (12021): Found 1 design units, including 1 entities, in source file memory_
 Info (12021): Found 1 design units, including 1 entities, in source file ksa_shuffle.sv
     Info (12023): Found entity 1: ksa_shuffle File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv Line: 1
 Warning (12019): Can't analyze file -- file datapath.v is missing
+Warning (10229): Verilog HDL Expression warning at datapath.sv(44): truncated literal to match 9 bits File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 44
+Warning (10229): Verilog HDL Expression warning at datapath.sv(46): truncated literal to match 9 bits File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 46
+Warning (10229): Verilog HDL Expression warning at datapath.sv(47): truncated literal to match 9 bits File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 47
+Warning (10229): Verilog HDL Expression warning at datapath.sv(49): truncated literal to match 9 bits File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 49
 Info (12021): Found 1 design units, including 1 entities, in source file datapath.sv
     Info (12023): Found entity 1: datapath File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 1
 Warning (10229): Verilog HDL Expression warning at decryption_core.sv(21): truncated literal to match 3 bits File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 21
 Info (12021): Found 1 design units, including 1 entities, in source file decryption_core.sv
     Info (12023): Found entity 1: decryption_core File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(40): created implicit net for "register_for_shuffle" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 40
-Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(41): created implicit net for "register_for_init_memory" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 41
+Info (12021): Found 2 design units, including 1 entities, in source file d_memory.vhd
+    Info (12022): Found design unit 1: d_memory-SYN File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/d_memory.vhd Line: 55
+    Info (12023): Found entity 1: d_memory File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/d_memory.vhd Line: 43
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(63): created implicit net for "register_for_decryption" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 63
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(64): created implicit net for "register_for_shuffle" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 64
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(65): created implicit net for "register_for_init_memory" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 65
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(124): created implicit net for "decrypt_start" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 124
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(125): created implicit net for "decrypt_done_ack" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 125
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(133): created implicit net for "e_mem_data_read" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 133
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(134): created implicit net for "decrypt_done" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 134
 Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(23): created implicit net for "datapath_start" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 23
+Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(72): created implicit net for "d_mem_addr" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 72
+Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(73): created implicit net for "d_mem_data_write" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 73
+Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(74): created implicit net for "d_mem_data_read" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 74
+Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(75): created implicit net for "d_mem_wren" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 75
+Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(79): created implicit net for "e_mem_addr" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 79
+Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(80): created implicit net for "e_mem_wren" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 80
+Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(107): created implicit net for "e_mem_data_read" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 107
 Info (12127): Elaborating entity "ksa" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at ksa.vhd(11): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 11
 Warning (10541): VHDL Signal Declaration warning at ksa.vhd(12): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 12
@@ -657,16 +966,28 @@ Warning (10541): VHDL Signal Declaration warning at ksa.vhd(15): used implicit d
 Warning (10541): VHDL Signal Declaration warning at ksa.vhd(16): used implicit default value for signal "HEX5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 16
 Warning (10873): Using initial value X (don't care) for net "LEDR[8..1]" at ksa.vhd(10) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 10
 Info (12128): Elaborating entity "decryption_core" for hierarchy "decryption_core:core_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 55
-Info (12128): Elaborating entity "datapath" for hierarchy "decryption_core:core_inst|datapath:datapath_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 70
-Info (12128): Elaborating entity "memory_init" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 74
+Info (12128): Elaborating entity "datapath" for hierarchy "decryption_core:core_inst|datapath:datapath_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 81
+Warning (10036): Verilog HDL or VHDL warning at datapath.sv(54): object "decryption_start" assigned a value but never read File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 54
+Warning (10858): Verilog HDL warning at datapath.sv(60): object decryption_done used but never assigned File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 60
+Warning (10036): Verilog HDL or VHDL warning at datapath.sv(61): object "decryption_done_ack" assigned a value but never read File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 61
+Warning (10858): Verilog HDL warning at datapath.sv(80): object s_mem_data_write_decryption used but never assigned File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 80
+Warning (10030): Net "s_mem_data_write_decryption" at datapath.sv(80) has no driver or initial value, using a default initial value '0' File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 80
+Warning (10030): Net "decryption_done" at datapath.sv(60) has no driver or initial value, using a default initial value '0' File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 60
+Warning (10034): Output port "e_mem_wren" at datapath.sv(26) has no driver File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 26
+Info (12128): Elaborating entity "memory_init" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 103
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(17): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 17
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(18): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 18
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(19): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 19
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(20): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 20
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(41): truncated value with size 32 to match size of target (8) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 41
-Info (12128): Elaborating entity "ksa_shuffle" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 88
+Info (12128): Elaborating entity "ksa_shuffle" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 117
 Warning (10230): Verilog HDL assignment warning at ksa_shuffle.sv(116): truncated value with size 32 to match size of target (8) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv Line: 116
-Info (12128): Elaborating entity "s_memory" for hierarchy "decryption_core:core_inst|s_memory:memory_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 79
+Warning (12125): Using design file message_decryption.sv, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: message_decryption File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/message_decryption.sv Line: 1
+Info (12128): Elaborating entity "message_decryption" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|message_decryption:message_decryption_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 135
+Warning (10230): Verilog HDL assignment warning at message_decryption.sv(77): truncated value with size 32 to match size of target (8) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/message_decryption.sv Line: 77
+Warning (10230): Verilog HDL assignment warning at message_decryption.sv(145): truncated value with size 32 to match size of target (8) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/message_decryption.sv Line: 145
+Info (12128): Elaborating entity "s_memory" for hierarchy "decryption_core:core_inst|s_memory:memory_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 93
 Info (12128): Elaborating entity "altsyncram" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/s_memory.vhd Line: 62
 Info (12130): Elaborated megafunction instantiation "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/s_memory.vhd Line: 62
 Info (12133): Instantiated megafunction "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/s_memory.vhd Line: 62
@@ -740,8 +1061,153 @@ Info (12133): Instantiated megafunction "decryption_core:core_inst|s_memory:memo
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
 Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
+Info (12128): Elaborating entity "d_memory" for hierarchy "decryption_core:core_inst|d_memory:d_mem" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 101
+Info (12128): Elaborating entity "altsyncram" for hierarchy "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/d_memory.vhd Line: 62
+Info (12130): Elaborated megafunction instantiation "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/d_memory.vhd Line: 62
+Info (12133): Instantiated megafunction "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component" with the following parameter: File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/d_memory.vhd Line: 62
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "UNUSED"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "32"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "M10K"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "5"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=D"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_c3b4.tdf
+    Info (12023): Found entity 1: altsyncram_c3b4 File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_c3b4.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_c3b4" for hierarchy "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_um83.tdf
+    Info (12023): Found entity 1: altsyncram_um83 File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_um83.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_um83" for hierarchy "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|altsyncram_um83:altsyncram1" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_c3b4.tdf Line: 37
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_c3b4.tdf Line: 38
+Info (12130): Elaborated megafunction instantiation "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_c3b4.tdf Line: 38
+Info (12133): Instantiated megafunction "decryption_core:core_inst|d_memory:d_mem|altsyncram:altsyncram_component|altsyncram_c3b4:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_c3b4.tdf Line: 38
+    Info (12134): Parameter "CVALUE" = "00000000"
+    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
+    Info (12134): Parameter "IS_READABLE" = "1"
+    Info (12134): Parameter "NODE_NAME" = "1140850688"
+    Info (12134): Parameter "NUMWORDS" = "32"
+    Info (12134): Parameter "SHIFT_COUNT_BITS" = "4"
+    Info (12134): Parameter "WIDTH_WORD" = "8"
+    Info (12134): Parameter "WIDTHAD" = "5"
+Warning (12125): Using design file e_memory.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: e_memory-SYN File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/e_memory.vhd Line: 53
+    Info (12023): Found entity 1: e_memory File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/e_memory.vhd Line: 43
+Info (12128): Elaborating entity "e_memory" for hierarchy "decryption_core:core_inst|e_memory:e_mem" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 107
+Info (12128): Elaborating entity "altsyncram" for hierarchy "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/e_memory.vhd Line: 60
+Info (12130): Elaborated megafunction instantiation "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/e_memory.vhd Line: 60
+Info (12133): Instantiated megafunction "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component" with the following parameter: File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/e_memory.vhd Line: 60
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../secret_messages/msg_1_for_task2b/message.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "32"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "M10K"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "5"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=E"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3fg4.tdf
+    Info (12023): Found entity 1: altsyncram_3fg4 File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_3fg4.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_3fg4" for hierarchy "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_85h3.tdf
+    Info (12023): Found entity 1: altsyncram_85h3 File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_85h3.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_85h3" for hierarchy "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|altsyncram_85h3:altsyncram1" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_3fg4.tdf Line: 35
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_3fg4.tdf Line: 36
+Info (12130): Elaborated megafunction instantiation "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_3fg4.tdf Line: 36
+Info (12133): Instantiated megafunction "decryption_core:core_inst|e_memory:e_mem|altsyncram:altsyncram_component|altsyncram_3fg4:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/altsyncram_3fg4.tdf Line: 36
+    Info (12134): Parameter "CVALUE" = "00000000"
+    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
+    Info (12134): Parameter "IS_READABLE" = "1"
+    Info (12134): Parameter "NODE_NAME" = "1157627904"
+    Info (12134): Parameter "NUMWORDS" = "32"
+    Info (12134): Parameter "SHIFT_COUNT_BITS" = "4"
+    Info (12134): Parameter "WIDTH_WORD" = "8"
+    Info (12134): Parameter "WIDTHAD" = "5"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2025.06.13.19:53:38 Progress: Loading sld73f98f60/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2025.06.13.21:02:18 Progress: Loading sld73f98f60/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -760,7 +1226,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/ip/s
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
-    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 182
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/ip/sld73f98f60/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
@@ -778,6 +1244,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_9kh File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/sign_div_unsign_9kh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ose.tdf
     Info (12023): Found entity 1: alt_u_div_ose File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/db/alt_u_div_ose.tdf Line: 23
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 10
     Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 10
@@ -834,32 +1301,32 @@ Info (144001): Generated suppressed messages file C:/Courses/CPEN 311/labs_dev/l
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (15752): Ignored 12 Virtual Pin logic option assignments
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[0]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[7]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_EN".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[5]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[3]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[6]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[1]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[2]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_ON".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_RS".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_EN".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_RW".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[7]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[1]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[5]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_RS".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[4]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[6]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_ON".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[0]".
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
-Info (21057): Implemented 438 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 703 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 53 output pins
-    Info (21061): Implemented 358 logic cells
-    Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
-    Info: Peak virtual memory: 4924 megabytes
-    Info: Processing ended: Fri Jun 13 19:53:44 2025
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:24
+    Info (21061): Implemented 607 logic cells
+    Info (21064): Implemented 24 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 115 warnings
+    Info: Peak virtual memory: 5019 megabytes
+    Info: Processing ended: Fri Jun 13 21:02:25 2025
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:40
 
 
 +------------------------------------------+
