@@ -71,7 +71,6 @@ module decryption_core (
      // D Memory interface
     .d_mem_addr     (d_mem_addr),
     .d_mem_data_write  (d_mem_data_write),
-    .d_mem_data_read (d_mem_data_read),
     .d_mem_wren     (d_mem_wren),
 
 
