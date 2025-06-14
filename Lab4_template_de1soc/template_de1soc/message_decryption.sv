@@ -73,7 +73,7 @@ module message_decryption (
       s_i            <= 8'd0;
       s_j            <= 8'd0;
       f              <= 8'd0;
-      k              <= 8'd0;
+      k              <= 5'd0;
       encrypted_byte <= 8'd0;
     end else begin
       case (state)
@@ -82,7 +82,7 @@ module message_decryption (
             state <= INC_I;
             i     <= 8'd0;
             j     <= 8'd0;
-            k     <= 8'd0;
+            k     <= 5'd0;
           end
         end
 
