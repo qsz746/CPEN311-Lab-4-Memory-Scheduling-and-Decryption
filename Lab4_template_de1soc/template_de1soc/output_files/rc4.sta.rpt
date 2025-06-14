@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for rc4
-Fri Jun 13 19:27:24 2025
+Fri Jun 13 19:55:24 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -103,26 +103,26 @@ agreement for further details.
 ; Number detected on machine ; 32          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.40        ;
+; Average used               ; 1.42        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   3.1%      ;
-;     Processor 3            ;   2.9%      ;
-;     Processor 4            ;   2.8%      ;
-;     Processor 5            ;   2.7%      ;
-;     Processor 6            ;   2.7%      ;
+;     Processor 2            ;   3.3%      ;
+;     Processor 3            ;   3.1%      ;
+;     Processor 4            ;   3.0%      ;
+;     Processor 5            ;   2.9%      ;
+;     Processor 6            ;   2.8%      ;
 ;     Processor 7            ;   2.7%      ;
 ;     Processor 8            ;   2.7%      ;
 ;     Processor 9            ;   2.7%      ;
-;     Processor 10           ;   2.6%      ;
-;     Processor 11           ;   2.6%      ;
-;     Processor 12           ;   2.6%      ;
-;     Processor 13           ;   2.6%      ;
-;     Processor 14           ;   2.5%      ;
-;     Processor 15           ;   2.5%      ;
-;     Processor 16           ;   2.5%      ;
+;     Processor 10           ;   2.7%      ;
+;     Processor 11           ;   2.7%      ;
+;     Processor 12           ;   2.7%      ;
+;     Processor 13           ;   2.7%      ;
+;     Processor 14           ;   2.7%      ;
+;     Processor 15           ;   2.7%      ;
+;     Processor 16           ;   2.7%      ;
 +----------------------------+-------------+
 
 
@@ -131,7 +131,7 @@ agreement for further details.
 +------------------------+--------+--------------------------+
 ; SDC File Path          ; Status ; Read at                  ;
 +------------------------+--------+--------------------------+
-; timing_constraints.sdc ; OK     ; Fri Jun 13 19:27:21 2025 ;
+; timing_constraints.sdc ; OK     ; Fri Jun 13 19:55:21 2025 ;
 +------------------------+--------+--------------------------+
 
 
@@ -888,7 +888,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
-    Info: Processing started: Fri Jun 13 19:27:20 2025
+    Info: Processing started: Fri Jun 13 19:55:20 2025
 Info: Command: quartus_sta rc4 -c rc4
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1011,9 +1011,9 @@ Info (332146): Worst-case minimum pulse width slack is 8.482
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 5326 megabytes
-    Info: Processing ended: Fri Jun 13 19:27:24 2025
+    Info: Peak virtual memory: 5325 megabytes
+    Info: Processing ended: Fri Jun 13 19:55:24 2025
     Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Total CPU time (on all processors): 00:00:05
 
 

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rc4
-Fri Jun 13 19:25:48 2025
+Fri Jun 13 19:53:44 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -59,7 +59,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Jun 13 19:25:48 2025       ;
+; Analysis & Synthesis Status     ; Successful - Fri Jun 13 19:53:44 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; rc4                                         ;
 ; Top-level Entity Name           ; ksa                                         ;
@@ -625,7 +625,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
-    Info: Processing started: Fri Jun 13 19:25:35 2025
+    Info: Processing started: Fri Jun 13 19:53:30 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rc4 -c rc4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -645,11 +645,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file datapat
 Warning (10229): Verilog HDL Expression warning at decryption_core.sv(21): truncated literal to match 3 bits File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 21
 Info (12021): Found 1 design units, including 1 entities, in source file decryption_core.sv
     Info (12023): Found entity 1: decryption_core File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 1
-Info (12021): Found 2 design units, including 1 entities, in source file decryptedmessage.vhd
-    Info (12022): Found design unit 1: decryptedmessage-SYN File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/DecryptedMessage.vhd Line: 55
-    Info (12023): Found entity 1: DecryptedMessage File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/DecryptedMessage.vhd Line: 43
-Info (12021): Found 1 design units, including 1 entities, in source file encryptedmessage.v
-    Info (12023): Found entity 1: EncryptedMessage File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/EncryptedMessage.v Line: 40
 Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(40): created implicit net for "register_for_shuffle" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 40
 Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(41): created implicit net for "register_for_init_memory" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 41
 Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(23): created implicit net for "datapath_start" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 23
@@ -746,7 +741,7 @@ Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "decr
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
 Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2025.06.13.19:25:42 Progress: Loading sld73f98f60/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2025.06.13.19:53:38 Progress: Loading sld73f98f60/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -839,18 +834,18 @@ Info (144001): Generated suppressed messages file C:/Courses/CPEN 311/labs_dev/l
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (15752): Ignored 12 Virtual Pin logic option assignments
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[6]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[7]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[5]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[2]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[0]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[7]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_EN".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[5]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[3]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[6]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[1]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[2]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_ON".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_RS".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_RW".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[4]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_EN".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_ON".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[3]".
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
@@ -861,10 +856,10 @@ Info (21057): Implemented 438 device resources after synthesis - the final resou
     Info (21061): Implemented 358 logic cells
     Info (21064): Implemented 8 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
-    Info: Peak virtual memory: 4943 megabytes
-    Info: Processing ended: Fri Jun 13 19:25:48 2025
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:25
+    Info: Peak virtual memory: 4924 megabytes
+    Info: Processing ended: Fri Jun 13 19:53:44 2025
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+

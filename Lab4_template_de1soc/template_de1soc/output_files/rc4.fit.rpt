@@ -1,5 +1,5 @@
 Fitter report for rc4
-Fri Jun 13 19:27:03 2025
+Fri Jun 13 19:55:13 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Fri Jun 13 19:27:03 2025       ;
+; Fitter Status                   ; Successful - Fri Jun 13 19:55:13 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; rc4                                         ;
 ; Top-level Entity Name           ; ksa                                         ;
@@ -155,26 +155,26 @@ agreement for further details.
 ; Number detected on machine ; 32          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.05        ;
+; Average used               ; 1.07        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.5%      ;
-;     Processor 3            ;   0.4%      ;
-;     Processor 4            ;   0.4%      ;
-;     Processor 5            ;   0.3%      ;
-;     Processor 6            ;   0.3%      ;
-;     Processor 7            ;   0.3%      ;
-;     Processor 8            ;   0.3%      ;
-;     Processor 9            ;   0.3%      ;
-;     Processor 10           ;   0.3%      ;
-;     Processor 11           ;   0.3%      ;
-;     Processor 12           ;   0.3%      ;
-;     Processor 13           ;   0.3%      ;
-;     Processor 14           ;   0.3%      ;
-;     Processor 15           ;   0.3%      ;
-;     Processor 16           ;   0.3%      ;
+;     Processor 2            ;   0.7%      ;
+;     Processor 3            ;   0.6%      ;
+;     Processor 4            ;   0.5%      ;
+;     Processor 5            ;   0.5%      ;
+;     Processor 6            ;   0.5%      ;
+;     Processor 7            ;   0.5%      ;
+;     Processor 8            ;   0.4%      ;
+;     Processor 9            ;   0.4%      ;
+;     Processor 10           ;   0.4%      ;
+;     Processor 11           ;   0.4%      ;
+;     Processor 12           ;   0.4%      ;
+;     Processor 13           ;   0.4%      ;
+;     Processor 14           ;   0.4%      ;
+;     Processor 15           ;   0.4%      ;
+;     Processor 16           ;   0.4%      ;
 +----------------------------+-------------+
 
 
@@ -3196,20 +3196,20 @@ Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 5% of the available device resources in the region that extends from location X0_Y0 to location X10_Y10
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.90 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:04
+Info (11888): Total time spent on timing analysis during the Fitter is 1.75 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:12
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/output_files/rc4.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 196 warnings
-    Info: Peak virtual memory: 8050 megabytes
-    Info: Processing ended: Fri Jun 13 19:27:04 2025
-    Info: Elapsed time: 00:01:09
-    Info: Total CPU time (on all processors): 00:08:46
+    Info: Peak virtual memory: 7985 megabytes
+    Info: Processing ended: Fri Jun 13 19:55:14 2025
+    Info: Elapsed time: 00:01:29
+    Info: Total CPU time (on all processors): 00:09:13
 
 
 +----------------------------+
