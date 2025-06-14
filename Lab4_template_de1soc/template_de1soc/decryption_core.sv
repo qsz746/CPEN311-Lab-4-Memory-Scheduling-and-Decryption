@@ -11,6 +11,17 @@ module decryption_core (
   logic [7:0]  s_mem_data_write;
   logic [7:0]  s_mem_data_read;
   logic        s_mem_wren;
+
+
+  logic [4:0]  d_mem_addr;
+  logic [7:0]  d_mem_data_write;
+  logic        d_mem_wren;
+ 
+  logic [4:0]  e_mem_addr;
+  logic [7:0]  e_mem_data_read;
+ 
+
+ 
   logic datapath_done_ack;  // Handshake acknowledgment
   logic datapath_done;  // Handshake acknowledgment 
  

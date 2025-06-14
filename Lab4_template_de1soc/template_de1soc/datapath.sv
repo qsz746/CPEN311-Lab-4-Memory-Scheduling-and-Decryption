@@ -21,7 +21,7 @@ module datapath (
 
   // E Memory interface
   output logic [4:0]  e_mem_addr,
-  input logic         e_mem_data_read
+  input logic  [7:0]  e_mem_data_read
   );
  
   logic [10:0] state;
