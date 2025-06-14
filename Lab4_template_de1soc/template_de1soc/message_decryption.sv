@@ -20,11 +20,11 @@ module message_decryption (
   output logic        s_mem_wren,         // Write enable for S memory
   
   output logic [7:0]  d_mem_data_write,   // Decrypted output to memory
-  output logic [7:0]  d_mem_addr,         // Address for decrypted memory
+  output logic [4:0]  d_mem_addr,         // Address for decrypted memory
   output logic        d_mem_wren,         // Write enable for decrypted memory
   
   input  logic [7:0]  e_mem_data_read,    // Encrypted input from memory
-  output logic [7:0]  e_mem_addr,         // Address for encrypted memory
+  output logic [4:0]  e_mem_addr,         // Address for encrypted memory
   output logic        done
 );
 
@@ -61,7 +61,7 @@ module message_decryption (
   assign d_mem_wren = state[2];  
 
   logic [7:0] i, j, s_i, s_j, f;
-  logic [7:0] k; // Message byte counter
+  logic [4:0] k;  
   logic [7:0] encrypted_byte;
 
   // State machine
@@ -177,8 +177,8 @@ module message_decryption (
   always_comb begin
     // Default outputs
     s_mem_addr = 8'd0;
-    e_mem_addr = 8'd0;
-    d_mem_addr = 8'd0;
+    e_mem_addr = 5'd0;
+    d_mem_addr = 5'd0;
     s_mem_data_write = 8'd0;
     d_mem_data_write = 8'd0;
 

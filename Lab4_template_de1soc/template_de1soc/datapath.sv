@@ -14,14 +14,14 @@ module datapath (
 
 
   // D Memory interface
-  output logic [7:0]  d_mem_addr,
+  output logic [4:0]  d_mem_addr,
   output logic [7:0]  d_mem_data_write,
   input  logic [7:0]  d_mem_data_read,
   output logic        d_mem_wren,
   
 
   // E Memory interface
-  output logic [7:0]  e_mem_addr,
+  output logic [4:0]  e_mem_addr,
   input logic         e_mem_data_read
   );
  
