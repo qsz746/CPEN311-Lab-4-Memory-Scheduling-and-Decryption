@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rc4
-Fri Jun 13 14:29:35 2025
+Fri Jun 13 19:25:48 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -59,13 +59,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Jun 13 14:29:35 2025       ;
+; Analysis & Synthesis Status     ; Successful - Fri Jun 13 19:25:48 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; rc4                                         ;
 ; Top-level Entity Name           ; ksa                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 210                                         ;
+; Total registers                 ; 213                                         ;
 ; Total pins                      ; 67                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048                                       ;
@@ -241,16 +241,16 @@ agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 178                      ;
+; Estimate of Logic utilization (ALMs needed) ; 187                      ;
 ;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 282                      ;
+; Combinational ALUT usage for logic          ; 299                      ;
 ;     -- 7 input functions                    ; 2                        ;
 ;     -- 6 input functions                    ; 58                       ;
-;     -- 5 input functions                    ; 42                       ;
-;     -- 4 input functions                    ; 48                       ;
-;     -- <=3 input functions                  ; 132                      ;
+;     -- 5 input functions                    ; 61                       ;
+;     -- 4 input functions                    ; 43                       ;
+;     -- <=3 input functions                  ; 135                      ;
 ;                                             ;                          ;
-; Dedicated logic registers                   ; 210                      ;
+; Dedicated logic registers                   ; 213                      ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 67                       ;
 ; Total MLAB memory bits                      ; 0                        ;
@@ -260,8 +260,8 @@ agreement for further details.
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 156                      ;
-; Total fan-out                               ; 2085                     ;
-; Average fan-out                             ; 3.24                     ;
+; Total fan-out                               ; 2210                     ;
+; Average fan-out                             ; 3.33                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -270,9 +270,9 @@ agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                             ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |ksa                                                                                                                                    ; 282 (2)             ; 210 (1)                   ; 2048              ; 0          ; 67   ; 0            ; |ksa                                                                                                                                                                                                                                                                                                                                            ; ksa                               ; work         ;
-;    |decryption_core:core_inst|                                                                                                          ; 181 (3)             ; 122 (3)                   ; 2048              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst                                                                                                                                                                                                                                                                                                                  ; decryption_core                   ; work         ;
-;       |datapath:datapath_inst|                                                                                                          ; 137 (35)            ; 82 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst                                                                                                                                                                                                                                                                                           ; datapath                          ; work         ;
+; |ksa                                                                                                                                    ; 299 (2)             ; 213 (1)                   ; 2048              ; 0          ; 67   ; 0            ; |ksa                                                                                                                                                                                                                                                                                                                                            ; ksa                               ; work         ;
+;    |decryption_core:core_inst|                                                                                                          ; 198 (3)             ; 125 (3)                   ; 2048              ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst                                                                                                                                                                                                                                                                                                                  ; decryption_core                   ; work         ;
+;       |datapath:datapath_inst|                                                                                                          ; 154 (52)            ; 85 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst                                                                                                                                                                                                                                                                                           ; datapath                          ; work         ;
 ;          |ksa_shuffle:ksa_shuffle_inst|                                                                                                 ; 87 (47)             ; 46 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst                                                                                                                                                                                                                                                              ; ksa_shuffle                       ; work         ;
 ;             |lpm_divide:Mod0|                                                                                                           ; 40 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0                                                                                                                                                                                                                                              ; lpm_divide                        ; work         ;
 ;                |lpm_divide_62m:auto_generated|                                                                                          ; 40 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|lpm_divide:Mod0|lpm_divide_62m:auto_generated                                                                                                                                                                                                                ; lpm_divide_62m                    ; work         ;
@@ -320,19 +320,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                                                                             ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
-; Register name                                                                                                                                                          ; Reason for Removal                                                    ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
-; decryption_core:core_inst|state[2]                                                                                                                                     ; Merged with decryption_core:core_inst|state[1]                        ;
-; decryption_core:core_inst|datapath:datapath_inst|state[4]                                                                                                              ; Merged with decryption_core:core_inst|datapath:datapath_inst|state[1] ;
-; decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|state[2]                                                                                 ; Stuck at GND due to stuck port data_in                                ;
-; decryption_core:core_inst|datapath:datapath_inst|state[1]                                                                                                              ; Stuck at GND due to stuck port clock_enable                           ;
-; decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[2]                                                                                 ; Stuck at GND due to stuck port clock_enable                           ;
-; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3] ; Stuck at GND due to stuck port data_in                                ;
-; Total Number of Removed Registers = 6                                                                                                                                  ;                                                                       ;
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                      ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
+; Register name                                                                                                                                                          ; Reason for Removal                             ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
+; decryption_core:core_inst|state[2]                                                                                                                                     ; Merged with decryption_core:core_inst|state[1] ;
+; decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|state[2]                                                                                 ; Stuck at GND due to stuck port data_in         ;
+; decryption_core:core_inst|datapath:datapath_inst|state[8]                                                                                                              ; Stuck at GND due to stuck port clock_enable    ;
+; decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[2]                                                                                 ; Stuck at GND due to stuck port clock_enable    ;
+; decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3] ; Stuck at GND due to stuck port data_in         ;
+; Total Number of Removed Registers = 5                                                                                                                                  ;                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -340,12 +339,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 210   ;
-; Number of registers using Synchronous Clear  ; 33    ;
-; Number of registers using Synchronous Load   ; 18    ;
-; Number of registers using Asynchronous Clear ; 139   ;
+; Total registers                              ; 213   ;
+; Number of registers using Synchronous Clear  ; 49    ;
+; Number of registers using Synchronous Load   ; 19    ;
+; Number of registers using Asynchronous Clear ; 142   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 141   ;
+; Number of registers using Clock Enable       ; 157   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -369,19 +368,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[1]                                                ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[3]                                     ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[6]                                                ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|key_byte[0]                                                                                                                  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[7]                                                ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|key_byte[1]                                                                                                                  ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[3] ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|state[0]                                                                                                                                                                         ;
-; 33:1               ; 8 bits    ; 176 LEs       ; 0 LEs                ; 176 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|counter[3]                                                                                                                   ;
-; 20:1               ; 4 bits    ; 52 LEs        ; 40 LEs               ; 12 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|state[3]                                                                                                                                                  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |ksa|decryption_core:core_inst|state[1]                                                                                                                                                                         ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 0 LEs                ; 176 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|counter[6]                                                                                                                   ;
 ; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[0]      ;
-; 35:1               ; 5 bits    ; 115 LEs       ; 105 LEs              ; 10 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[0]                                                                                                                     ;
-; 67:1               ; 8 bits    ; 352 LEs       ; 0 LEs                ; 352 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|j[6]                                                                                                                         ;
-; 130:1              ; 5 bits    ; 430 LEs       ; 85 LEs               ; 345 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|state[1]                                                                                                                     ;
-; 68:1               ; 8 bits    ; 360 LEs       ; 0 LEs                ; 360 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|i[2]                                                                                                                         ;
-; 128:1              ; 8 bits    ; 680 LEs       ; 56 LEs               ; 624 LEs                ; No         ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|Selector36                                                                                                                   ;
-; 62:1               ; 8 bits    ; 328 LEs       ; 80 LEs               ; 248 LEs                ; No         ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|Selector27                                                                                                                   ;
+; 35:1               ; 5 bits    ; 115 LEs       ; 105 LEs              ; 10 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst|state[2]                                                                                                                     ;
+; 67:1               ; 8 bits    ; 352 LEs       ; 0 LEs                ; 352 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|j[1]                                                                                                                         ;
+; 130:1              ; 5 bits    ; 430 LEs       ; 85 LEs               ; 345 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|state[5]                                                                                                                     ;
+; 130:1              ; 8 bits    ; 688 LEs       ; 16 LEs               ; 672 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|s_mem_data_write_reg[1]                                                                                                                                   ;
+; 68:1               ; 8 bits    ; 360 LEs       ; 0 LEs                ; 360 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst|i[6]                                                                                                                         ;
+; 64:1               ; 8 bits    ; 336 LEs       ; 16 LEs               ; 320 LEs                ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|s_mem_addr_reg[2]                                                                                                                                         ;
+; 516:1              ; 9 bits    ; 3096 LEs      ; 3069 LEs             ; 27 LEs                 ; Yes        ; |ksa|decryption_core:core_inst|datapath:datapath_inst|state[7]                                                                                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -408,14 +407,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-----------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: decryption_core:core_inst|datapath:datapath_inst ;
-+----------------+-------+----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                 ;
-+----------------+-------+----------------------------------------------------------------------+
-; IDLE           ; 00000 ; Unsigned Binary                                                      ;
-; INIT_MEMORY    ; 00100 ; Unsigned Binary                                                      ;
-; SHUFFLE        ; 01000 ; Unsigned Binary                                                      ;
-; COMPLETE       ; 01101 ; Unsigned Binary                                                      ;
-+----------------+-------+----------------------------------------------------------------------+
++----------------------+-----------+------------------------------------------------------------+
+; Parameter Name       ; Value     ; Type                                                       ;
++----------------------+-----------+------------------------------------------------------------+
+; IDLE                 ; 000000000 ; Unsigned Binary                                            ;
+; INIT_MEMORY          ; 000101010 ; Unsigned Binary                                            ;
+; WAIT_FOR_INIT_MEMORY ; 001001000 ; Unsigned Binary                                            ;
+; SHUFFLE              ; 001110100 ; Unsigned Binary                                            ;
+; WAIT_FOR_SHUFFLE     ; 010010000 ; Unsigned Binary                                            ;
+; COMPLETE             ; 010100001 ; Unsigned Binary                                            ;
++----------------------+-----------+------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -572,17 +573,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 123                         ;
-;     CLR               ; 40                          ;
+; arriav_ff             ; 126                         ;
+;     CLR               ; 26                          ;
 ;     CLR SCLR          ; 1                           ;
+;     CLR SLD           ; 1                           ;
 ;     ENA               ; 9                           ;
 ;     ENA CLR           ; 31                          ;
-;     ENA CLR SCLR      ; 24                          ;
+;     ENA CLR SCLR      ; 40                          ;
 ;     ENA CLR SCLR SLD  ; 1                           ;
 ;     ENA CLR SLD       ; 8                           ;
 ;     ENA SLD           ; 8                           ;
 ;     plain             ; 1                           ;
-; arriav_lcell_comb     ; 184                         ;
+; arriav_lcell_comb     ; 201                         ;
 ;     arith             ; 51                          ;
 ;         0 data inputs ; 7                           ;
 ;         1 data inputs ; 32                          ;
@@ -590,13 +592,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 5                           ;
 ;     extend            ; 2                           ;
 ;         7 data inputs ; 2                           ;
-;     normal            ; 123                         ;
+;     normal            ; 140                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 15                          ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 28                          ;
-;         5 data inputs ; 22                          ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 23                          ;
+;         5 data inputs ; 41                          ;
 ;         6 data inputs ; 44                          ;
 ;     shared            ; 8                           ;
 ;         3 data inputs ; 8                           ;
@@ -604,7 +606,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 10.40                       ;
-; Average LUT depth     ; 2.72                        ;
+; Average LUT depth     ; 2.74                        ;
 +-----------------------+-----------------------------+
 
 
@@ -623,7 +625,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
-    Info: Processing started: Fri Jun 13 14:29:10 2025
+    Info: Processing started: Fri Jun 13 19:25:35 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rc4 -c rc4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -638,13 +640,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file memory_
 Info (12021): Found 1 design units, including 1 entities, in source file ksa_shuffle.sv
     Info (12023): Found entity 1: ksa_shuffle File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv Line: 1
 Warning (12019): Can't analyze file -- file datapath.v is missing
-Warning (10275): Verilog HDL Module Instantiation warning at datapath.sv(70): ignored dangling comma in List of Port Connections File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 70
-Warning (10275): Verilog HDL Module Instantiation warning at datapath.sv(84): ignored dangling comma in List of Port Connections File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 84
 Info (12021): Found 1 design units, including 1 entities, in source file datapath.sv
     Info (12023): Found entity 1: datapath File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 1
 Warning (10229): Verilog HDL Expression warning at decryption_core.sv(21): truncated literal to match 3 bits File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 21
 Info (12021): Found 1 design units, including 1 entities, in source file decryption_core.sv
     Info (12023): Found entity 1: decryption_core File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 1
+Info (12021): Found 2 design units, including 1 entities, in source file decryptedmessage.vhd
+    Info (12022): Found design unit 1: decryptedmessage-SYN File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/DecryptedMessage.vhd Line: 55
+    Info (12023): Found entity 1: DecryptedMessage File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/DecryptedMessage.vhd Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file encryptedmessage.v
+    Info (12023): Found entity 1: EncryptedMessage File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/EncryptedMessage.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(40): created implicit net for "register_for_shuffle" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(41): created implicit net for "register_for_init_memory" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 41
 Warning (10236): Verilog HDL Implicit Net warning at decryption_core.sv(23): created implicit net for "datapath_start" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 23
 Info (12127): Elaborating entity "ksa" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at ksa.vhd(11): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 11
@@ -656,18 +663,13 @@ Warning (10541): VHDL Signal Declaration warning at ksa.vhd(16): used implicit d
 Warning (10873): Using initial value X (don't care) for net "LEDR[8..1]" at ksa.vhd(10) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 10
 Info (12128): Elaborating entity "decryption_core" for hierarchy "decryption_core:core_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 55
 Info (12128): Elaborating entity "datapath" for hierarchy "decryption_core:core_inst|datapath:datapath_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 70
-Warning (10230): Verilog HDL assignment warning at datapath.sv(20): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 20
-Warning (10230): Verilog HDL assignment warning at datapath.sv(21): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 21
-Warning (10230): Verilog HDL assignment warning at datapath.sv(22): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 22
-Warning (10230): Verilog HDL assignment warning at datapath.sv(23): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 23
-Info (10264): Verilog HDL Case Statement information at datapath.sv(144): all case item expressions in this case statement are onehot File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 144
-Info (12128): Elaborating entity "memory_init" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 70
+Info (12128): Elaborating entity "memory_init" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|memory_init:memory_init_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 74
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(17): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 17
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(18): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 18
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(19): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 19
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(20): truncated value with size 6 to match size of target (5) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 20
 Warning (10230): Verilog HDL assignment warning at memory_init.sv(41): truncated value with size 32 to match size of target (8) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/memory_init.sv Line: 41
-Info (12128): Elaborating entity "ksa_shuffle" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 84
+Info (12128): Elaborating entity "ksa_shuffle" for hierarchy "decryption_core:core_inst|datapath:datapath_inst|ksa_shuffle:ksa_shuffle_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/datapath.sv Line: 88
 Warning (10230): Verilog HDL assignment warning at ksa_shuffle.sv(116): truncated value with size 32 to match size of target (8) File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv Line: 116
 Info (12128): Elaborating entity "s_memory" for hierarchy "decryption_core:core_inst|s_memory:memory_inst" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/decryption_core.sv Line: 79
 Info (12128): Elaborating entity "altsyncram" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/s_memory.vhd Line: 62
@@ -744,7 +746,7 @@ Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "decr
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
 Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "decryption_core:core_inst|s_memory:memory_inst|altsyncram:altsyncram_component|altsyncram_m5b4:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2025.06.13.14:29:23 Progress: Loading sld73f98f60/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2025.06.13.19:25:42 Progress: Loading sld73f98f60/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -837,32 +839,32 @@ Info (144001): Generated suppressed messages file C:/Courses/CPEN 311/labs_dev/l
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (15752): Ignored 12 Virtual Pin logic option assignments
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[7]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[6]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[2]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[7]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[5]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[3]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[2]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[0]".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[4]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[1]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_RS".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_RW".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_ON".
-    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[1]".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[4]".
     Warning (15751): Ignored Virtual Pin assignment to "LCD_EN".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_ON".
+    Warning (15751): Ignored Virtual Pin assignment to "LCD_DATA[3]".
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/ksa.vhd Line: 8
-Info (21057): Implemented 422 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 438 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 53 output pins
-    Info (21061): Implemented 342 logic cells
+    Info (21061): Implemented 358 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 91 warnings
-    Info: Peak virtual memory: 4954 megabytes
-    Info: Processing ended: Fri Jun 13 14:29:35 2025
-    Info: Elapsed time: 00:00:25
-    Info: Total CPU time (on all processors): 00:00:43
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
+    Info: Peak virtual memory: 4943 megabytes
+    Info: Processing ended: Fri Jun 13 19:25:48 2025
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:25
 
 
 +------------------------------------------+

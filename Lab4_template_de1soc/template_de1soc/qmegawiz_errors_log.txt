@@ -1,0 +1,13 @@
+
+
+C:/Courses/CPEN 311/labs_dev/lab4/Lab4_template_de1soc/template_de1soc/EncryptedMessage.vhd
+
+Jun 13 07PM:37:31>: The following design file, which has identical name but a different extension 
+from the specified variation file, already exists in the working directory:
+
+EncryptedMessage.v
+
+This may create a conflict of design files and/or lead to undesirable side
+effects.
+
+Is it OK to continue file generation?

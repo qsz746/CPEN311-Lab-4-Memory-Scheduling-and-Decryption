@@ -1,5 +1,5 @@
 Flow report for rc4
-Fri Jun 13 14:31:42 2025
+Fri Jun 13 19:27:24 2025
 Quartus Prime Version 16.1.2 Build 203 01/18/2017 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Jun 13 14:31:24 2025       ;
+; Flow Status                     ; Successful - Fri Jun 13 19:27:20 2025       ;
 ; Quartus Prime Version           ; 16.1.2 Build 203 01/18/2017 SJ Lite Edition ;
 ; Revision Name                   ; rc4                                         ;
 ; Top-level Entity Name           ; ksa                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 178 / 32,070 ( < 1 % )                      ;
-; Total registers                 ; 234                                         ;
+; Logic utilization (in ALMs)     ; 187 / 32,070 ( < 1 % )                      ;
+; Total registers                 ; 252                                         ;
 ; Total pins                      ; 69 / 457 ( 15 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,048 / 4,065,280 ( < 1 % )                 ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/13/2025 14:29:11 ;
+; Start date & time ; 06/13/2025 19:25:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; rc4                 ;
 +-------------------+---------------------+
@@ -82,13 +82,16 @@ agreement for further details.
 ; AUTO_RAM_RECOGNITION                              ; Off                                    ; On                 ; --          ; --         ;
 ; AUTO_ROM_RECOGNITION                              ; Off                                    ; On                 ; --          ; --         ;
 ; BLOCK_RAM_AND_MLAB_EQUIVALENT_POWER_UP_CONDITIONS ; Care                                   ; Auto               ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                             ; 158765689006798.174985015102484        ; --                 ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                             ; 158765689006798.174986793536124        ; --                 ; --          ; --         ;
 ; EXTRACT_VERILOG_STATE_MACHINES                    ; Off                                    ; On                 ; --          ; --         ;
 ; EXTRACT_VHDL_STATE_MACHINES                       ; Off                                    ; On                 ; --          ; --         ;
 ; FITTER_EFFORT                                     ; Standard Fit                           ; Auto Fit           ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                            ; 85                                     ; --                 ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                            ; 0                                      ; --                 ; --          ; --         ;
 ; MISC_FILE                                         ; s_memory.cmp                           ; --                 ; --          ; --         ;
+; MISC_FILE                                         ; DecryptedMessage.cmp                   ; --                 ; --          ; --         ;
+; MISC_FILE                                         ; EncryptedMessage_bb.v                  ; --                 ; --          ; --         ;
+; MISC_FILE                                         ; EncryptedMessage.cmp                   ; --                 ; --          ; --         ;
 ; OPTIMIZE_POWER_DURING_SYNTHESIS                   ; Off                                    ; Normal compilation ; --          ; --         ;
 ; PARTITION_COLOR                                   ; -- (Not supported for targeted family) ; --                 ; ksa         ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL               ; -- (Not supported for targeted family) ; --                 ; ksa         ; Top        ;
@@ -112,11 +115,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:24     ; 1.0                     ; 4954 MB             ; 00:00:42                           ;
-; Fitter                    ; 00:01:39     ; 1.0                     ; 7973 MB             ; 00:11:02                           ;
-; Assembler                 ; 00:00:08     ; 1.0                     ; 4841 MB             ; 00:00:07                           ;
-; TimeQuest Timing Analyzer ; 00:00:07     ; 1.5                     ; 5326 MB             ; 00:00:07                           ;
-; Total                     ; 00:02:18     ; --                      ; --                  ; 00:11:58                           ;
+; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 4943 MB             ; 00:00:24                           ;
+; Fitter                    ; 00:01:08     ; 1.1                     ; 8050 MB             ; 00:08:46                           ;
+; Assembler                 ; 00:00:04     ; 1.0                     ; 4842 MB             ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 1.4                     ; 5326 MB             ; 00:00:04                           ;
+; Total                     ; 00:01:28     ; --                      ; --                  ; 00:09:18                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
