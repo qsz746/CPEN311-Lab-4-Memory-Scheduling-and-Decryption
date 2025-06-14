@@ -121,8 +121,8 @@ module datapath (
     message_decryption message_decryption_inst (
       .clk            (clk),                     
       .reset_n        (reset_n),                 
-      .start          (decrypt_start),            
-      .done_ack       (decrypt_done_ack),        
+      .start          (decryption_start),            
+      .done_ack       (decryption_done_ack),        
       .s_mem_addr     (s_mem_addr_decryption),  // S Memory interface        
       .s_mem_data_read(s_mem_data_read),    
       .s_mem_data_write(s_mem_data_write_decryption),
@@ -132,7 +132,7 @@ module datapath (
       .d_mem_wren     (d_mem_wren), 
 		  .e_mem_addr     (e_mem_addr),  	    // E Memory interface  	
 		  .e_mem_data_read(e_mem_data_read), 		
-      .done           (decrypt_done)             
+      .done           (decryption_done)             
     );
 
   // Main FSM logic
@@ -168,7 +168,7 @@ module datapath (
 
         WAIT_FOR_SHUFFLE: begin
           if (shuffle_done) begin
-            state <= COMPLETE;
+            state <= DECRYPTION;
             shuffle_done_ack <= 1'b1;
           end
         end

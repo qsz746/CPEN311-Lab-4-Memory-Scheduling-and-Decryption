@@ -43,7 +43,7 @@ module decryption_core (
 
         WORKING: begin
           if (datapath_done) begin
-            datapath_done_ack <= 1'b1; // 1-cycle pulse
+            datapath_done_ack <= 1'b1;  
             state <= DONE;
           end
         end
