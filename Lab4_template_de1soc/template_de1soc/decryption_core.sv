@@ -2,8 +2,11 @@ module decryption_core (
   input  logic        clk,
   input  logic        reset_n,
   input  logic        start,
-  input  logic [9:0]  input_key,
-  output logic        done
+  output logic [23:0] secret_key,
+  input logic [23:0]  secret_key_start_value,
+  input logic [23:0]  secret_key_end_value, 
+  output logic        done,
+  output logic        secret_key_found_flag
 );
 
   // Internal memory interface signals
@@ -24,6 +27,7 @@ module decryption_core (
  
   logic datapath_done_ack;  // Handshake acknowledgment
   logic datapath_done;  // Handshake acknowledgment 
+ 
  
 
   logic [2:0] state;
@@ -70,9 +74,13 @@ module decryption_core (
     .clk                   (clk),
     .reset_n               (reset_n),
     .datapath_start        (datapath_start),
-    .input_key             (input_key),
     .datapath_done         (datapath_done),
     .datapath_done_ack     (datapath_done_ack),
+    .secret_key            (secret_key),
+    .secret_key_start_value       (secret_key_start_value),
+    .secret_key_end_value         (secret_key_end_value),
+	 .secret_key_found_flag   (secret_key_found_flag),
+ 
     // Memory interface
     .s_mem_addr     (s_mem_addr),
     .s_mem_data_write  (s_mem_data_write),

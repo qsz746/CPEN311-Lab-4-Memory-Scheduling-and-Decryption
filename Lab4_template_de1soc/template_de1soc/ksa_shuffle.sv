@@ -3,7 +3,7 @@ module ksa_shuffle (
   input  logic        reset_n,
   input  logic        start,
   input  logic        done_ack,           // Handshake acknowledgment
-  input  logic [9:0]  input_key,
+  input  logic [23:0] secret_key,
   output logic [7:0]  mem_addr,
   input  logic [7:0]  mem_data_read,      // Data READ FROM memory
   output logic [7:0]  mem_data_write,     // Data TO WRITE TO memory 
@@ -12,13 +12,9 @@ module ksa_shuffle (
 );
 
   localparam KEY_LENGTH = 3;
-  logic [7:0] secret_key [0:KEY_LENGTH-1];
+ 
 
-  always_comb begin
-    secret_key[0] = 8'h00;
-    secret_key[1] = {6'b0, input_key[9:8]};
-    secret_key[2] = input_key[7:0];
-  end
+ 
 
   typedef enum logic [4:0] {
     IDLE,
@@ -91,9 +87,9 @@ module ksa_shuffle (
 
         READ_KEY_BYTE: begin
           case (i % KEY_LENGTH)
-            0: key_byte <= secret_key[0];
-            1: key_byte <= secret_key[1];
-            2: key_byte <= secret_key[2];
+            0: key_byte <= secret_key[23:16];
+            1: key_byte <= secret_key[15:8];
+            2: key_byte <= secret_key[7:0];
             default: key_byte <= 8'd0;
           endcase
           state <= COMPUTE_J;

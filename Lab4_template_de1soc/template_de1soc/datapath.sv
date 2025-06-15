@@ -2,9 +2,13 @@ module datapath (
   input  logic        clk,
   input  logic        reset_n,
   input  logic        datapath_start,
-  input  logic [9:0]  input_key,
   input  logic        datapath_done_ack,    // Handshake acknowledgment
   output logic        datapath_done,
+
+  output logic [23:0] secret_key,
+  input logic  [23:0] secret_key_start_value,
+  input logic  [23:0] secret_key_end_value,
+  output logic        secret_key_found_flag,
   
   // S Memory interface
   output logic [7:0]  s_mem_addr,
@@ -22,8 +26,13 @@ module datapath (
   // E Memory interface
   output logic [4:0]  e_mem_addr,
   input logic  [7:0]  e_mem_data_read
-  );
  
+  );
+  
+ 
+ 
+
+
   logic [10:0] state;
   // FSM State definition
   // state[10:7] = additional bits to make state unique
@@ -107,7 +116,7 @@ module datapath (
     .clk            (clk),
     .reset_n        (reset_n),
     .start          (shuffle_start),   
-    .input_key      (input_key),
+    .secret_key     (secret_key),
     .mem_addr       (s_mem_addr_shuffle),
     .mem_data_read  (s_mem_data_read),
     .mem_data_write (s_mem_data_write_shuffle),
@@ -132,21 +141,26 @@ module datapath (
       .d_mem_wren     (d_mem_wren), 
 		  .e_mem_addr     (e_mem_addr),  	    // E Memory interface  	
 		  .e_mem_data_read(e_mem_data_read), 		
-      .done           (decryption_done)             
+      .done           (decryption_done),
+      .secret_key_found_flag (secret_key_found_flag),           
     );
 
   // Main FSM logic
   always_ff @(posedge clk or negedge reset_n) begin
     if (!reset_n) begin
       state <= IDLE;
+      secret_key   <=  secret_key_start_value;
       shuffle_done_ack <= 1'b0;
       init_done_ack    <= 1'b0;
+		decryption_done_ack  <= 1'b0;
     end else begin
       // Default outputs
       shuffle_done_ack <= 1'b0;
       init_done_ack    <= 1'b0;
+		decryption_done_ack  <= 1'b0;
       case (state)
         IDLE: begin
+          secret_key   <=  secret_key_start_value;
           if (datapath_start)
             state <= INIT_MEMORY;
         end
@@ -179,15 +193,33 @@ module datapath (
 
         WAIT_FOR_DECRYPTION: begin
           if (decryption_done) begin
-            state <= COMPLETE;
-            decryption_done_ack <= 1'b1;
-          end
+					decryption_done_ack <= 1'b1;  // Acknowledge in all cases
+    
+					if (secret_key_found_flag) begin
+						// Valid message found - complete
+						state <= COMPLETE;
+					end
+					else if (secret_key == secret_key_end_value) begin
+					// Reached end of key space without finding solution
+						state <= COMPLETE;
+					end
+					else begin
+						// Try next key
+						secret_key <= secret_key + 1'b1;
+						state <= INIT_MEMORY;
+					end
+				end
         end
+		  
 
         COMPLETE: begin
-          if (datapath_done_ack)
-            state <= IDLE;
+           state <= COMPLETE;
         end
+		  
+		  
+		  	default: begin
+				state <= IDLE;
+		   end
       endcase
     end
   end

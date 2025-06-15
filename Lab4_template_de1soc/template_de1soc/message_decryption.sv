@@ -16,7 +16,8 @@ module message_decryption (
   
   input  logic [7:0]  e_mem_data_read,
   output logic [4:0]  e_mem_addr,
-  output logic        done
+  output logic        done,
+  output logic        secret_key_found_flag
 );
 
   localparam MESSAGE_LENGTH = 32;
@@ -54,6 +55,7 @@ module message_decryption (
   logic [7:0] i, j, s_i, s_j, f;
   logic [4:0] k;
   logic [7:0] encrypted_byte;
+  
 
   // Registered outputs
   always_ff @(posedge clk or negedge reset_n) begin
@@ -76,6 +78,7 @@ module message_decryption (
       d_mem_wren <= 1'b0;
       e_mem_addr <= 5'd0;
       done <= 1'b0;
+      secret_key_found_flag <= 1'b0;
     end else begin
       // Default outputs
       s_mem_wren <= 1'b0;
@@ -89,6 +92,7 @@ module message_decryption (
             i <= 8'd0;
             j <= 8'd0;
             k <= 5'd0;
+            secret_key_found_flag <= 1'b0;
           end
         end
         
@@ -193,22 +197,35 @@ module message_decryption (
         end
 
         WRITE_OUTPUT: begin
-          d_mem_addr <= k;
-          d_mem_data_write <= f ^ encrypted_byte;
-          d_mem_wren <= 1'b1;
-          if (k == MESSAGE_LENGTH - 1) begin
-            state <= DONE;
-          end else begin
-            k <= k + 1;           
-            state <= INC_I;
-          end
+            d_mem_addr <= k;
+            d_mem_data_write <= f ^ encrypted_byte;
+            d_mem_wren <= 1'b1;
+
+            // Check if decrypted char is valid
+            if (((f ^ encrypted_byte) >= 8'd97 && (f ^ encrypted_byte) <= 8'd122) || (f ^ encrypted_byte) == 8'd32) begin
+                if (k == MESSAGE_LENGTH - 1) begin
+                    // All characters valid, set flag
+                    secret_key_found_flag <= 1'b1;
+                    state <= DONE;
+                end
+                else begin
+                    k <= k + 1;
+                    state <= INC_I;
+                end
+            end
+            else begin
+                // Invalid character, abort this key
+                state <= DONE;
+            end
         end
+
+
         
-        DONE: begin
+        DONE: begin   // If secret_key_found_flag=1, stay here forever
           done <= 1'b1;
-          if (done_ack) begin
+          if (!secret_key_found_flag && done_ack) begin  
             state <= IDLE;
-          end
+			 end
         end
       endcase
     end
