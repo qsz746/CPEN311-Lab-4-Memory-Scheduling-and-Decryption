@@ -53,6 +53,10 @@ module memory_init (
                        state <= IDLE;  // Return to IDLE after one cycle
 						  end
                 end
+
+                default: begin
+							state <= IDLE;
+		          end
             endcase
         end
     end

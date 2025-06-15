@@ -217,9 +217,9 @@ module datapath (
         end
 		  
 		  
-		  	default: begin
+		  default: begin
 				state <= IDLE;
-		   end
+		  end
       endcase
     end
   end

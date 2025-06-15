@@ -64,6 +64,11 @@ module decryption_core (
         end
 
         DONE: begin
+            state <= DONE; 
+        end
+
+        default: begin
+            state <= IDLE;
         end
       endcase
     end

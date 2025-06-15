@@ -225,8 +225,12 @@ module message_decryption (
           done <= 1'b1;
           if (!secret_key_found_flag && done_ack) begin  
             state <= IDLE;
-			 end
+			    end
         end
+
+        default: begin
+				state <= IDLE;
+		  end
       endcase
     end
   end
