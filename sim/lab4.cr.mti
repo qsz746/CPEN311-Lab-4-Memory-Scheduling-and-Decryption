@@ -1,0 +1,75 @@
+C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/e_memory.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/e_memory.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity e_memory
+-- Compiling architecture SYN of e_memory
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv {1 {vlog -work work -sv -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ksa_shuffle
+
+Top level modules:
+	ksa_shuffle
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity s_memory
+-- Compiling architecture SYN of s_memory
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/memory_init.sv {1 {vlog -work work -sv -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/memory_init.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module memory_init
+
+Top level modules:
+	memory_init
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ksa
+-- Compiling architecture rtl of ksa
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/message_decryption_msg1_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/message_decryption_msg1_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_message_decryption
+
+Top level modules:
+	tb_message_decryption
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/message_decryption.sv {1 {vlog -work work -sv -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/message_decryption.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module message_decryption
+
+Top level modules:
+	message_decryption
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/decryption_core.sv {2 {vlog -work work -sv -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/decryption_core.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module decryption_core
+** Warning: C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/decryption_core.sv(30): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/decryption_core.sv(31): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/decryption_core.sv(32): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	decryption_core
+
+} {} {}} C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/d_memory.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/d_memory.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity d_memory
+-- Compiling architecture SYN of d_memory
+
+} {} {}}
