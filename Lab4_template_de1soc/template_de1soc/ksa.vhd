@@ -26,27 +26,29 @@ architecture rtl of ksa is
     END COMPONENT;
 	 
 	 
-
-
-  component decryption_core is
+	 
+	 component multicore_decryption is
     port(
-      clk       : in  std_logic;
-      reset_n   : in  std_logic;
-      start     : in  std_logic;
-      secret_key : out std_logic_vector(23 downto 0);
-     secret_key_start_value  : in  std_logic_vector(23 downto 0);
-     secret_key_end_value    : in  std_logic_vector(23 downto 0);
-      done      : out std_logic;
-		secret_key_found_flag   : out std_logic
+      clk               : in  std_logic;
+      reset_n           : in  std_logic;
+      start             : in  std_logic;
+      secret_key        : out std_logic_vector(23 downto 0);
+      done              : out std_logic;
+      secret_key_found  : out std_logic;
+      active_core       : out std_logic_vector(1 downto 0)
     );
-  end component;
+    end component;
+
+
+ 
 	 
     -- Signals
-	 signal secret_key : std_logic_vector(23 downto 0);
-    signal core_done : std_logic;
-    signal start_core : std_logic := '1'; -- Default to '1' for auto-start
+	 signal secret_key     : std_logic_vector(23 downto 0);
+    signal multicore_done : std_logic;
+    signal start_multicore     : std_logic := '1'; -- Default to '1' for auto-start
  
-    signal secret_key_found_flag : std_logic;
+    signal secret_key_found : std_logic;
+	 signal active_core      : std_logic_vector(1 downto 0);
     -- clock and reset signals  
 	 signal clk, reset_n : std_logic;		
 
@@ -54,8 +56,8 @@ architecture rtl of ksa is
     
     signal Seven_Seg_Val0, Seven_Seg_Val1, Seven_Seg_Val2 : std_logic_vector(6 downto 0);
     signal Seven_Seg_Val3, Seven_Seg_Val4, Seven_Seg_Val5 : std_logic_vector(6 downto 0);	 
-	 constant SECRET_KEY_START : std_logic_vector(23 downto 0) := x"000000";
-    constant SECRET_KEY_END   : std_logic_vector(23 downto 0) := x"3FFFFF";
+--	 constant SECRET_KEY_START : std_logic_vector(23 downto 0) := x"000000";
+--    constant SECRET_KEY_END   : std_logic_vector(23 downto 0) := x"3FFFFF";
    
 begin
 
@@ -64,35 +66,42 @@ begin
 	 
  
 	 
-	 core_inst : decryption_core
-    port map (
-      clk       => clk,
-      reset_n   => reset_n,
-      start     => start_core,
-      secret_key             => secret_key,
-      secret_key_start_value => SECRET_KEY_START,
-      secret_key_end_value   => SECRET_KEY_END,
-		secret_key_found_flag => secret_key_found_flag,
-      done      => core_done
-    );
+  -- Instantiate multicore decryptor
+    multicore_inst : multicore_decryption
+      port map (
+			clk               => clk,
+			reset_n           => reset_n,
+			start             => start_multicore,
+			secret_key        => secret_key,
+			done              => multicore_done,
+			secret_key_found  => secret_key_found,
+			active_core       => active_core
+		);
 
     process(clk)
     begin
         if rising_edge(clk) then
             if reset_n = '0' then
-                start_core <= '1';  -- <== Reset triggers a fresh start
-            elsif core_done = '1' then
-                start_core <= '0';  -- Disable after completion
+                start_multicore <= '1';  -- <== Reset triggers a fresh start
+            elsif multicore_done = '1' then
+                start_multicore <= '0';  -- Disable after completion
             end if;
         end if;
     end process;
 
 
-    LEDR(0) <= core_done;  -- Show completion status
---    LEDR(9) <= start_core; -- Show when core is active
-	 LEDR(1) <= secret_key_found_flag;
+--    LEDR(0) <= multicore_done;  -- Show completion status
+--  LEDR(9) <= start_core; -- Show when core is active
+--	 LEDR(1) <= secret_key_found_flag;
+	 
+	 -- LED3 lights up if all cores are done and none found the key
+	 LEDR(3) <= '1' when (multicore_done = '1' and secret_key_found = '0') else '0';
 
 
+	 LEDR(9) <= '1' when (secret_key_found = '1' and active_core = "11") else '0';  -- Core 3
+	 LEDR(8) <= '1' when (secret_key_found = '1' and active_core = "10") else '0';  -- Core 2
+	 LEDR(7) <= '1' when (secret_key_found = '1' and active_core = "01") else '0';  -- Core 1
+	 LEDR(6) <= '1' when (secret_key_found = '1' and active_core = "00") else '0';  -- Core 0
 
 
 
