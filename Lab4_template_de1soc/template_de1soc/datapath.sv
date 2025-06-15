@@ -194,7 +194,7 @@ module datapath (
 
   // Output register logic
   always_ff @(posedge clk or negedge reset_n) begin
-    if (!reset_n) begin
+    if (!reset_n) begin 
       s_mem_addr_reg        <= 8'd0;
       s_mem_data_write_reg  <= 8'd0;
       s_mem_wren_reg        <= 1'b0;
@@ -214,5 +214,7 @@ module datapath (
 		end
     end
   end
+
+ 
 
 endmodule

@@ -25,19 +25,24 @@ module message_decryption (
     IDLE,
     INC_I,
     SET_ADDR_S_I,
-    WAIT_READ_S_I,
+    WAIT_READ_S_I_1,  // Added wait state for read
+    WAIT_READ_S_I_2,  // Added wait state for read
     READ_S_I,
     COMPUTE_J,
     SET_ADDR_S_J,
-    WAIT_READ_S_J,
+    WAIT_READ_S_J_1,  // Added wait state for read
+    WAIT_READ_S_J_2,  // Added wait state for read
     READ_S_J,
     SWAP_WRITE_J_TO_I,
-	 WAIT_FOR_SWAP_WRITE_J_TO_I,
+    WAIT_FOR_SWAP_WRITE_J_TO_I_1,  // Added wait state for write
+    WAIT_FOR_SWAP_WRITE_J_TO_I_2,  // Added wait state for write
     SWAP_WRITE_I_TO_J,
-	 WAIT_FOR_SWAP_WRITE_I_TO_J,
+    WAIT_FOR_SWAP_WRITE_I_TO_J_1,  // Added wait state for write
+    WAIT_FOR_SWAP_WRITE_I_TO_J_2,  // Added wait state for write
     COMPUTE_F_ADDR,
     SET_ADDRS_F_E,
-    WAIT_READ_F_E,
+    WAIT_READ_F_E_1,  // Added wait state for read
+    WAIT_READ_F_E_2,  // Added wait state for read
     READ_F_E,
     WRITE_OUTPUT,
     DONE
@@ -94,10 +99,14 @@ module message_decryption (
         
         SET_ADDR_S_I: begin
           s_mem_addr <= i;
-          state <= WAIT_READ_S_I;
+          state <= WAIT_READ_S_I_1;
         end
         
-        WAIT_READ_S_I: begin
+        WAIT_READ_S_I_1: begin
+          state <= WAIT_READ_S_I_2;
+        end
+        
+        WAIT_READ_S_I_2: begin
           state <= READ_S_I;
         end
         
@@ -113,10 +122,14 @@ module message_decryption (
         
         SET_ADDR_S_J: begin
           s_mem_addr <= j;
-          state <= WAIT_READ_S_J;
+          state <= WAIT_READ_S_J_1;
         end
         
-        WAIT_READ_S_J: begin
+        WAIT_READ_S_J_1: begin
+          state <= WAIT_READ_S_J_2;
+        end
+        
+        WAIT_READ_S_J_2: begin
           state <= READ_S_J;
         end
         
@@ -125,40 +138,51 @@ module message_decryption (
           state <= SWAP_WRITE_J_TO_I;
         end
         
-		  
         SWAP_WRITE_J_TO_I: begin
-		     s_mem_addr <= i;
-           s_mem_data_write <= s_j;
-           s_mem_wren <= 1'b1;
-           state <= SWAP_WRITE_I_TO_J;
+          s_mem_addr <= i;
+          s_mem_data_write <= s_j;
+          s_mem_wren <= 1'b1;
+          state <= WAIT_FOR_SWAP_WRITE_J_TO_I_1;
         end
-		  
-		  
-		WAIT_FOR_SWAP_WRITE_J_TO_I: begin
-		     state <= SWAP_WRITE_I_TO_J;
-		  end  
-			
-	
+        
+        WAIT_FOR_SWAP_WRITE_J_TO_I_1: begin
+          state <= WAIT_FOR_SWAP_WRITE_J_TO_I_2;
+        end
+        
+        WAIT_FOR_SWAP_WRITE_J_TO_I_2: begin
+          state <= SWAP_WRITE_I_TO_J;
+        end
+        
         SWAP_WRITE_I_TO_J: begin
-		    s_mem_addr <= j;
+          s_mem_addr <= j;
           s_mem_data_write <= s_i;
           s_mem_wren <= 1'b1;
+          state <= WAIT_FOR_SWAP_WRITE_I_TO_J_1;
+        end
+        
+        WAIT_FOR_SWAP_WRITE_I_TO_J_1: begin
+          state <= WAIT_FOR_SWAP_WRITE_I_TO_J_2;
+        end
+        
+        WAIT_FOR_SWAP_WRITE_I_TO_J_2: begin
+          state <= COMPUTE_F_ADDR;
+        end
+        
+        COMPUTE_F_ADDR: begin
           state <= SET_ADDRS_F_E;
         end
-		  
-		  
-		WAIT_FOR_SWAP_WRITE_I_TO_J: begin
-		     state <= SET_ADDRS_F_E;
-        end
-		  
-		  
+        
         SET_ADDRS_F_E: begin
           s_mem_addr <= s_i + s_j;
           e_mem_addr <= k;
-          state <= WAIT_READ_F_E;
+          state <= WAIT_READ_F_E_1;
         end
         
-        WAIT_READ_F_E: begin
+        WAIT_READ_F_E_1: begin
+          state <= WAIT_READ_F_E_2;
+        end
+        
+        WAIT_READ_F_E_2: begin
           state <= READ_F_E;
         end
         
@@ -169,15 +193,15 @@ module message_decryption (
         end
 
         WRITE_OUTPUT: begin
-            d_mem_addr <= k;
-            d_mem_data_write <= f ^ encrypted_byte;
-            d_mem_wren <= 1'b1;
-            if (k == MESSAGE_LENGTH - 1) begin
-                state <= DONE;
-            end else begin
-                k <= k + 1;           
-                state <= INC_I;
-            end
+          d_mem_addr <= k;
+          d_mem_data_write <= f ^ encrypted_byte;
+          d_mem_wren <= 1'b1;
+          if (k == MESSAGE_LENGTH - 1) begin
+            state <= DONE;
+          end else begin
+            k <= k + 1;           
+            state <= INC_I;
+          end
         end
         
         DONE: begin
@@ -189,5 +213,4 @@ module message_decryption (
       endcase
     end
   end
-
 endmodule
