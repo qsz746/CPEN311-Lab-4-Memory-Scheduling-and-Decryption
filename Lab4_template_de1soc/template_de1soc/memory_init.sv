@@ -14,10 +14,10 @@ module memory_init (
     // state[2] = placeholder, always 0, for future 
     // state[1] = mem_wren  (1 when INIT)
     // state[0] = init_done (1 when DONE)
-    parameter [4:0] IDLE  = 6'b00_0_00;
-    parameter [4:0] INIT  = 6'b01_0_10;  // mem_wren=1
-	 parameter [4:0] WAIT  = 6'b10_0_10;  // mem_wren=1
-    parameter [4:0] DONE  = 6'b11_0_01;  // init_done=1
+    parameter [4:0] IDLE  = 5'b00_0_00;
+    parameter [4:0] INIT  = 5'b01_0_10;  // mem_wren=1
+	 parameter [4:0] WAIT  = 5'b10_0_10;  // mem_wren=1
+    parameter [4:0] DONE  = 5'b11_0_01;  // init_done=1
 
     logic [4:0] state;
     logic [7:0] counter;  // 8-bit counter (0 to 255)

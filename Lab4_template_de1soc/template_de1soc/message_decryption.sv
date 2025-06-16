@@ -22,7 +22,7 @@ module message_decryption (
 
   localparam MESSAGE_LENGTH = 32;
   
-  typedef enum logic [4:0] {
+  typedef enum logic [5:0] {
     IDLE,
     INC_I,
     SET_ADDR_S_I,

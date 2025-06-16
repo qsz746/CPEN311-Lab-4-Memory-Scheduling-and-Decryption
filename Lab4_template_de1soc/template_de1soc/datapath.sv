@@ -46,17 +46,17 @@ module datapath (
   // state[1] = init_start
   // state[0] = datapath_done
 
-  parameter [10:0] IDLE                 = 9'b0000_000_000_0;
-  parameter [10:0] INIT_MEMORY          = 9'b0001_001_001_0;  // init_start = 1, register_for_init_memory = 1
-  parameter [10:0] WAIT_FOR_INIT_MEMORY = 9'b0010_001_000_0;  // register_for_init_memory = 1
+  parameter [10:0] IDLE                 = 11'b0000_000_000_0;
+  parameter [10:0] INIT_MEMORY          = 11'b0001_001_001_0;  // init_start = 1, register_for_init_memory = 1
+  parameter [10:0] WAIT_FOR_INIT_MEMORY = 11'b0010_001_000_0;  // register_for_init_memory = 1
 
-  parameter [10:0] SHUFFLE              = 9'b0011_010_010_0;  // shuffle_start = 1,  register_for_shuffle = 1
-  parameter [10:0] WAIT_FOR_SHUFFLE     = 9'b0100_010_000_0;  // register_for_shuffle = 1
+  parameter [10:0] SHUFFLE              = 11'b0011_010_010_0;  // shuffle_start = 1,  register_for_shuffle = 1
+  parameter [10:0] WAIT_FOR_SHUFFLE     = 11'b0100_010_000_0;  // register_for_shuffle = 1
   
-  parameter [10:0] DECRYPTION           = 9'b0101_100_100_0;  // decryption_start = 1,  register_for_decryption = 1
-  parameter [10:0] WAIT_FOR_DECRYPTION  = 9'b0110_100_000_0;  // register_for_decryption = 1
+  parameter [10:0] DECRYPTION           = 11'b0101_100_100_0;  // decryption_start = 1,  register_for_decryption = 1
+  parameter [10:0] WAIT_FOR_DECRYPTION  = 11'b0110_100_000_0;  // register_for_decryption = 1
  
-  parameter [10:0] COMPLETE             = 9'b0111_000_000_1;
+  parameter [10:0] COMPLETE             = 11'b0111_000_000_1;
 
   // Internal control wires
   logic init_start;
