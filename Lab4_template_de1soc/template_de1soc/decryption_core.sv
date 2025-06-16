@@ -2,6 +2,7 @@ module decryption_core (
   input  logic        clk,
   input  logic        reset_n,
   input  logic        start,
+  input  logic        stop,   
   output logic [23:0] secret_key,
   input logic [23:0]  secret_key_start_value,
   input logic [23:0]  secret_key_end_value, 
@@ -84,7 +85,8 @@ module decryption_core (
     .secret_key            (secret_key),
     .secret_key_start_value       (secret_key_start_value),
     .secret_key_end_value         (secret_key_end_value),
-	 .secret_key_found_flag   (secret_key_found_flag),
+	  .secret_key_found_flag   (secret_key_found_flag),
+    .stop                  (stop),  // New stop signal
  
     // Memory interface
     .s_mem_addr     (s_mem_addr),

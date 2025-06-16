@@ -3,6 +3,7 @@ module datapath (
   input  logic        reset_n,
   input  logic        datapath_start,
   input  logic        datapath_done_ack,    // Handshake acknowledgment
+  input  logic        stop,  
   output logic        datapath_done,
 
   output logic [23:0] secret_key,
@@ -152,12 +153,16 @@ module datapath (
       secret_key   <=  secret_key_start_value;
       shuffle_done_ack <= 1'b0;
       init_done_ack    <= 1'b0;
-		decryption_done_ack  <= 1'b0;
+		  decryption_done_ack  <= 1'b0;
+    end else if (stop && !secret_key_found_flag) begin
+      // If stop signal is received and we haven't found the key  
+      // transition to COMPLETE state
+      state <= COMPLETE;
     end else begin
       // Default outputs
       shuffle_done_ack <= 1'b0;
       init_done_ack    <= 1'b0;
-		decryption_done_ack  <= 1'b0;
+	  	decryption_done_ack  <= 1'b0;
       case (state)
         IDLE: begin
           secret_key   <=  secret_key_start_value;

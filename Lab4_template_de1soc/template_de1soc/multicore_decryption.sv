@@ -13,6 +13,7 @@ module multicore_decryption (
   logic [3:0] core_done;
   logic [3:0] core_found;
   logic [23:0] core_secret_key[4];
+ 
   
   // Key range divisions (0x000000-0x3FFFFF split into 4 equal parts)
   localparam [23:0] CORE0_START = 24'h000000;
@@ -34,7 +35,8 @@ module multicore_decryption (
     .secret_key_start_value(CORE0_START),
     .secret_key_end_value(CORE0_END),
     .done(core_done[0]),
-    .secret_key_found_flag(core_found[0])
+    .secret_key_found_flag(core_found[0]),
+    .stop(secret_key_found)
   );
   
   decryption_core core1 (
@@ -45,7 +47,8 @@ module multicore_decryption (
     .secret_key_start_value(CORE1_START),
     .secret_key_end_value(CORE1_END),
     .done(core_done[1]),
-    .secret_key_found_flag(core_found[1])
+    .secret_key_found_flag(core_found[1]),
+    .stop(secret_key_found)
   );
   
   decryption_core core2 (
@@ -56,7 +59,8 @@ module multicore_decryption (
     .secret_key_start_value(CORE2_START),
     .secret_key_end_value(CORE2_END),
     .done(core_done[2]),
-    .secret_key_found_flag(core_found[2])
+    .secret_key_found_flag(core_found[2]),
+    .stop(secret_key_found)
   );
   
   decryption_core core3 (
@@ -67,7 +71,8 @@ module multicore_decryption (
     .secret_key_start_value(CORE3_START),
     .secret_key_end_value(CORE3_END),
     .done(core_done[3]),
-    .secret_key_found_flag(core_found[3])
+    .secret_key_found_flag(core_found[3]),
+    .stop(secret_key_found)
   );
 
   // Output logic - no FSM needed
