@@ -16,27 +16,25 @@ module ksa_shuffle (
 
  
 
-  typedef enum logic [4:0] {
-    IDLE,
-    SET_ADDR_S_I,
-    WAIT_READ_S_I_1,
-    WAIT_READ_S_I_2,
-    READ_S_I,
-    READ_KEY_BYTE,
-    COMPUTE_J,
-    SET_ADDR_S_J,
-    WAIT_READ_S_J_1,
-    WAIT_READ_S_J_2,
-    READ_S_J,
-    SWAP_WRITE_J_TO_I,
-    WAIT_SWAP_J_TO_I,
-    SWAP_WRITE_I_TO_J,
-    WAIT_SWAP_I_TO_J,
-    FINAL_WAIT,
-    DONE
-  } state_t;
-  
-  state_t state;
+	parameter [4:0] IDLE                  = 5'b00000;
+	parameter [4:0] SET_ADDR_S_I          = 5'b00001;
+	parameter [4:0] WAIT_READ_S_I_1       = 5'b00010;
+	parameter [4:0] WAIT_READ_S_I_2       = 5'b00011;
+	parameter [4:0] READ_S_I              = 5'b00100;
+	parameter [4:0] READ_KEY_BYTE         = 5'b00101;
+	parameter [4:0] COMPUTE_J             = 5'b00110;
+	parameter [4:0] SET_ADDR_S_J          = 5'b00111;
+	parameter [4:0] WAIT_READ_S_J_1       = 5'b01000;
+	parameter [4:0] WAIT_READ_S_J_2       = 5'b01001;
+	parameter [4:0] READ_S_J              = 5'b01010;
+	parameter [4:0] SWAP_WRITE_J_TO_I     = 5'b01011;
+	parameter [4:0] WAIT_SWAP_J_TO_I      = 5'b01100;
+	parameter [4:0] SWAP_WRITE_I_TO_J     = 5'b01101;
+	parameter [4:0] WAIT_SWAP_I_TO_J      = 5'b01110;
+	parameter [4:0] FINAL_WAIT            = 5'b01111;
+	parameter [4:0] DONE                  = 5'b10000;
+
+	logic [4:0] state;
 
   logic [7:0] i, j, s_i, s_j, key_byte;
 

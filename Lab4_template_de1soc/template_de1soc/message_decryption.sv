@@ -22,34 +22,34 @@ module message_decryption (
 
   localparam MESSAGE_LENGTH = 32;
   
-  typedef enum logic [4:0] {
-    IDLE,
-    INC_I,
-    SET_ADDR_S_I,
-    WAIT_READ_S_I_1,  // Added wait state for read
-    WAIT_READ_S_I_2,  // Added wait state for read
-    READ_S_I,
-    COMPUTE_J,
-    SET_ADDR_S_J,
-    WAIT_READ_S_J_1,  // Added wait state for read
-    WAIT_READ_S_J_2,  // Added wait state for read
-    READ_S_J,
-    SWAP_WRITE_J_TO_I,
-    WAIT_FOR_SWAP_WRITE_J_TO_I_1,  // Added wait state for write
-    WAIT_FOR_SWAP_WRITE_J_TO_I_2,  // Added wait state for write
-    SWAP_WRITE_I_TO_J,
-    WAIT_FOR_SWAP_WRITE_I_TO_J_1,  // Added wait state for write
-    WAIT_FOR_SWAP_WRITE_I_TO_J_2,  // Added wait state for write
-    COMPUTE_F_ADDR,
-    SET_ADDRS_F_E,
-    WAIT_READ_F_E_1,  // Added wait state for read
-    WAIT_READ_F_E_2,  // Added wait state for read
-    READ_F_E,
-    WRITE_OUTPUT,
-    DONE
-  } state_t;
-  
-  state_t state;
+ 
+   parameter [4:0] IDLE                          = 5'b00000;
+	parameter [4:0] INC_I                         = 5'b00001;
+	parameter [4:0] SET_ADDR_S_I                  = 5'b00010;
+	parameter [4:0] WAIT_READ_S_I_1               = 5'b00011;
+	parameter [4:0] WAIT_READ_S_I_2               = 5'b00100;
+	parameter [4:0] READ_S_I                      = 5'b00101;
+	parameter [4:0] COMPUTE_J                     = 5'b00110;
+	parameter [4:0] SET_ADDR_S_J                  = 5'b00111;
+	parameter [4:0] WAIT_READ_S_J_1               = 5'b01000;
+	parameter [4:0] WAIT_READ_S_J_2               = 5'b01001;
+	parameter [4:0] READ_S_J                      = 5'b01010;
+	parameter [4:0] SWAP_WRITE_J_TO_I             = 5'b01011;
+	parameter [4:0] WAIT_FOR_SWAP_WRITE_J_TO_I_1  = 5'b01100;
+	parameter [4:0] WAIT_FOR_SWAP_WRITE_J_TO_I_2  = 5'b01101;
+	parameter [4:0] SWAP_WRITE_I_TO_J             = 5'b01110;
+	parameter [4:0] WAIT_FOR_SWAP_WRITE_I_TO_J_1  = 5'b01111;
+	parameter [4:0] WAIT_FOR_SWAP_WRITE_I_TO_J_2  = 5'b10000;
+	parameter [4:0] COMPUTE_F_ADDR                = 5'b10001;
+	parameter [4:0] SET_ADDRS_F_E                 = 5'b10010;
+	parameter [4:0] WAIT_READ_F_E_1               = 5'b10011;
+	parameter [4:0] WAIT_READ_F_E_2               = 5'b10100;
+	parameter [4:0] READ_F_E                      = 5'b10101;
+	parameter [4:0] WRITE_OUTPUT                  = 5'b10110;
+	parameter [4:0] DONE                          = 5'b10111;
+
+  logic [4:0] state;
+
 
   // Registers
   logic [7:0] i, j, s_i, s_j, f;
