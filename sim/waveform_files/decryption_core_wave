@@ -1,0 +1,33 @@
+onerror {resume}
+quietly WaveActivateNextPane {} 0
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/clk
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/reset_n
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/start
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/stop
+add wave -noupdate -height 34 /tb_decryption_core/dut/state
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/secret_key_start_value
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/secret_key_found_flag
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/secret_key_end_value
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/secret_key
+add wave -noupdate -height 34 -radix hexadecimal /tb_decryption_core/done
+add wave -noupdate -height 34 /tb_decryption_core/dut/datapath_start
+add wave -noupdate -height 34 /tb_decryption_core/dut/datapath_done_ack
+add wave -noupdate -height 34 /tb_decryption_core/dut/datapath_done
+TreeUpdate [SetDefaultTree]
+WaveRestoreCursors {{Cursor 1} {160 ps} 0}
+quietly wave cursor active 1
+configure wave -namecolwidth 281
+configure wave -valuecolwidth 100
+configure wave -justifyvalue left
+configure wave -signalnamewidth 0
+configure wave -snapdistance 10
+configure wave -datasetprefix 0
+configure wave -rowmargin 4
+configure wave -childrowmargin 2
+configure wave -gridoffset 0
+configure wave -gridperiod 1
+configure wave -griddelta 40
+configure wave -timeline 0
+configure wave -timelineunits ps
+update
+WaveRestoreZoom {25 ps} {172 ps}

@@ -22,9 +22,9 @@ V]H@^^3ON2Q^mf^OzbG:Y]0
 !s100 VW=WTL]mKzdZXIZ0:mz<C0
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1749951271
+Z8 !s110 1750121011
 !i10b 1
-Z9 !s108 1749951271.000000
+Z9 !s108 1750121011.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/d_memory.vhd|
 Z11 !s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/d_memory.vhd|
 !i113 1
@@ -53,13 +53,13 @@ vdatapath
 Z14 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
 R8
 !i10b 1
-!s100 eQe[Z4AUz[9hIO5J7VZ3H0
-IeN9;VaT_Y=DcD4k_JFP1Z0
+!s100 GE?_H^YcA1E>FJnL@a3<R1
+ITPNFJT9`X9<eN4XJh2^0N0
 Z15 VDg1SIo80bB@j0V0VzS_@n1
 !s105 datapath_sv_unit
 S1
 R4
-w1749942361
+w1750111897
 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/datapath.sv
 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/datapath.sv
 L0 1
@@ -77,13 +77,13 @@ vdecryption_core
 R14
 R8
 !i10b 1
-!s100 X3OH`0J7a6>eoUm2k1?8G3
-IB36_ZUG=gWCb8?gi4J^7?2
+!s100 PPWRQHW_zMmLI;iADaH[o0
+IWX:eZY7BZVhQBl`g_OA@=1
 R15
 !s105 decryption_core_sv_unit
 S1
 R4
-w1749931119
+w1750120441
 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/decryption_core.sv
 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/decryption_core.sv
 L0 1
@@ -139,13 +139,13 @@ R22
 R12
 R13
 Eksa
-R0
-Z23 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z23 w1750035311
+Z24 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R2
 R3
 R4
-Z24 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd
-Z25 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd
+Z25 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd
+Z26 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd
 l0
 L5
 VM4AXET9U]W1bZ1?>:5odQ3
@@ -155,27 +155,27 @@ R7
 R8
 !i10b 1
 R9
-Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd|
-Z27 !s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd|
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd|
+Z28 !s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa.vhd|
 !i113 1
 R12
 R13
 Artl
-R23
+R24
 R2
 R3
 DEx4 work 3 ksa 0 22 M4AXET9U]W1bZ1?>:5odQ3
-l49
+l62
 L19
-VIagSdRgMVi[;<XQTEXoW<2
-!s100 gIGc0H@<M8FW[nYSE2R990
+V8KNO4?dT:L_o`<bDjnn=i0
+!s100 ^i<B1kedN2e0aR>K;KXMk0
 R7
 32
 R8
 !i10b 1
 R9
-R26
 R27
+R28
 !i113 1
 R12
 R13
@@ -183,13 +183,13 @@ vksa_shuffle
 R14
 R8
 !i10b 1
-!s100 J<P]`=R`Y<ZFVfKK[MPjm2
-IXhgX1gF@TzaEz<SRRzW<K0
+!s100 P]mVSA0F8;8;gN4:9of^Q3
+I8KXZS_HP2WN^6SPbldOXe2
 R15
 !s105 ksa_shuffle_sv_unit
 S1
 R4
-w1749942347
+R23
 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv
 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/ksa_shuffle.sv
 L0 1
@@ -203,17 +203,41 @@ R9
 !i113 1
 R17
 R18
+vksa_shuffle_tb
+R14
+R8
+!i10b 1
+!s100 Q[i7b[`fd`2N4Y<NKN`;m3
+I2]3EJTJJEhCWK3za=7QWB0
+R15
+Z29 !s105 ksa_shuffle_tb_sv_unit
+S1
+R4
+w1750120603
+Z30 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/ksa_shuffle_tb.sv
+Z31 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/ksa_shuffle_tb.sv
+L0 3
+R16
+r1
+!s85 0
+31
+R9
+Z32 !s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/ksa_shuffle_tb.sv|
+Z33 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/ksa_shuffle_tb.sv|
+!i113 1
+R17
+R18
 vmemory_init
 R14
 R8
 !i10b 1
-!s100 SH6:_KGdIE:5L]mjD;QE<3
-I[=LiXEzSIBU6TFH@RYAlh0
+!s100 f=FkTIBBbWCJ?=:i4P`Ll3
+IoMHFChO@LWYP1BN12;3HN3
 R15
 !s105 memory_init_sv_unit
 S1
 R4
-R0
+w1750048872
 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/memory_init.sv
 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/memory_init.sv
 L0 1
@@ -231,13 +255,13 @@ vmessage_decryption
 R14
 R8
 !i10b 1
-!s100 5^8ZbTQTLKPl<Bae0GILU3
-I8J3ojZjS@O8;O_6RIXhYO1
+!s100 cj_UfdQBM[^dPa=hP?1I41
+I02[bK=6TDi^H;z>:3AD_S3
 R15
 !s105 message_decryption_sv_unit
 S1
 R4
-w1749950394
+w1750107533
 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/message_decryption.sv
 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/message_decryption.sv
 L0 1
@@ -251,14 +275,38 @@ R9
 !i113 1
 R17
 R18
+vmulticore_decryption
+R14
+R8
+!i10b 1
+!s100 ?[L`AC[@^GXScRa:V=ke`1
+IC>BU8R_:d^TVke544<[>U1
+R15
+!s105 multicore_decryption_sv_unit
+S1
+R4
+R23
+8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/multicore_decryption.sv
+FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/multicore_decryption.sv
+L0 1
+R16
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/multicore_decryption.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/multicore_decryption.sv|
+!i113 1
+R17
+R18
 Es_memory
-Z28 w1749764413
+Z34 w1749764413
 R1
 R2
 R3
 R4
-Z29 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd
-Z30 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd
+Z35 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd
+Z36 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd
 l0
 L43
 V7<e9WckKFHgG_=:QlL>Uc2
@@ -268,8 +316,8 @@ R7
 R8
 !i10b 1
 R9
-Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd|
-Z32 !s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd|
+Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd|
+Z38 !s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/Lab4_template_de1soc/template_de1soc/s_memory.vhd|
 !i113 1
 R12
 R13
@@ -287,25 +335,145 @@ R7
 R8
 !i10b 1
 R9
-R31
-R32
+R37
+R38
 !i113 1
 R12
 R13
+vtb_datapath
+R14
+R8
+!i10b 1
+!s100 o?_=l3H:]N0IW[855Za`n2
+IE^QWSYG6KFHS5[z3j?4g>1
+R15
+Z39 !s105 datapath_tb_sv_unit
+S1
+R4
+w1750117909
+Z40 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/datapath_tb.sv
+Z41 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/datapath_tb.sv
+L0 2
+R16
+r1
+!s85 0
+31
+R9
+Z42 !s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/datapath_tb.sv|
+Z43 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/datapath_tb.sv|
+!i113 1
+R17
+R18
+vtb_datapath_state_transitions
+R14
+!s110 1750110002
+!i10b 1
+!s100 XJElh:QG575cnOHYL=@cz3
+I]hKJ:e5em89^HfI6LzPZ[3
+R15
+R39
+S1
+R4
+w1750109958
+R40
+R41
+L0 3
+R16
+r1
+!s85 0
+31
+!s108 1750110002.000000
+R42
+R43
+!i113 1
+R17
+R18
+vtb_decryption_core
+R14
+!s110 1750121012
+!i10b 1
+!s100 Yi3m7]MG1lY[[@CPU3>6_1
+IlmeW[2>[@Pg8l0]D<Ihec2
+R15
+!s105 decryption_core_tb_sv_unit
+S1
+R4
+w1750121009
+8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/decryption_core_tb.sv
+FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/decryption_core_tb.sv
+L0 2
+R16
+r1
+!s85 0
+31
+!s108 1750121012.000000
+!s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/decryption_core_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/decryption_core_tb.sv|
+!i113 1
+R17
+R18
+vtb_ksa_shuffle
+R14
+!s110 1750096087
+!i10b 1
+!s100 TkDECViIC@=WQWDR8<:zV2
+Ie]1`EehV7m1a7hgg?OVG@3
+R15
+R29
+S1
+R4
+w1750095550
+R30
+R31
+L0 2
+R16
+r1
+!s85 0
+31
+!s108 1750096087.000000
+R32
+R33
+!i113 1
+R17
+R18
+vtb_memory_init
+R14
+R8
+!i10b 1
+!s100 FiKlhNg0]6lkm3Gn9Ji8Z2
+I9>YAcQYlz`S`<HR>cG4H:3
+R15
+!s105 memory_init_tb_sv_unit
+S1
+R4
+w1750104815
+8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/memory_init_tb.sv
+FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/memory_init_tb.sv
+L0 3
+R16
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/memory_init_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/memory_init_tb.sv|
+!i113 1
+R17
+R18
 vtb_message_decryption
 R14
 R8
 !i10b 1
-!s100 m:i9m_4JSB?:SNBFkkBWb3
-IeiXodOGYF35RWKZ^_fTl>3
+!s100 S3m>R>Aa65Mkg2z2EOo;Y2
+IMkIjABUO6hj33nXX4d[=c1
 R15
 !s105 message_decryption_msg1_tb_sv_unit
 S1
 R4
-w1749950979
+w1750108569
 8C:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/message_decryption_msg1_tb.sv
 FC:/Users/phamh/source/CPEN-311/CPEN311-Lab-4-Memory-Scheduling-and-Decryption/sim/message_decryption_msg1_tb.sv
-L0 3
+L0 1
 R16
 r1
 !s85 0
